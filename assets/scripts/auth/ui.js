@@ -1,7 +1,7 @@
 'use strict';
 
-const events = require('../crud/events');
-// const api = require('./api');
+// const events = require('../crud/events');
+const api = require('./api');
 
 
 const success = (data) => {

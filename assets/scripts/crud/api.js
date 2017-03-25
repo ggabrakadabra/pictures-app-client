@@ -111,5 +111,5 @@ module.exports = {
   showFavorites,
   deleteFavorite,
   deleteComment,
-  updateComment,
-};
+  updateComment
+}

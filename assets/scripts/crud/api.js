@@ -87,7 +87,7 @@ const deleteFavorite = function (id) {
     url: `${config.apiOrigin}/favorites/` + id,
     method: 'DELETE',
     headers: {
-      Authorization: `Token token=${store.user.token}`,
+      Authorization: `Token token=${store.user.token}`
     }
   })
 }

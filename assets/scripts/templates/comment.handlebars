@@ -1,0 +1,13 @@
+<div class="comment" author-id="{{user.id}}">
+  <div class="delete-comment" comment-id="{{id}}">X</div>
+  <div><h5 class="small-comment-header">Comment:</h5>{{note}}</div>
+  <form class="change-comment">
+    <fieldset>
+      <input type="number" name="comment[id]" placeholder="Comment ID" value="{{id}}" style="display: none;">
+      <input type="text" name="comment[note]" placeholder="Comment">
+      <input id="update-comment" type="submit" value="Update Comment">
+    </fieldset>
+  </form>
+  <div>Username: {{user.email}}</div>
+  <br>
+</div>

@@ -2,6 +2,8 @@
 
 const api = require('./api')
 const ui = require('./ui')
+// const showFavoriteTemplate = require('../templates/favorite.handlebars')
+
 // const store = require('../store')
 
 const onShowPictures = function (event) {
@@ -17,6 +19,7 @@ const onShowPictures = function (event) {
 
 const addHandlers = () => {
   $('#saved-pictures').on('click', onShowPictures)
+
 }
 
 module.exports = {

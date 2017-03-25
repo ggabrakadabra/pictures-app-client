@@ -38,7 +38,7 @@ const signInSuccess = function () {
   $('#apod-link').addClass('active');
   $('#change-password-link').removeClass('active');
   $('#my-pictures-link').removeClass('active');
-  $('.search-container').show();
+  $('.apod-container').show();
   $('#sign-in-link').hide();
   $('.sign-in-container').hide();
   $('#my-pictures-link').show();
@@ -51,7 +51,7 @@ const signInSuccess = function () {
   $('.comment-container').show();
   $('.favorite-container').show();
   $('.movie-container').show();
-  $('.api-search-container').show();
+  $('.api-apod-container').show();
 };
 
 const signUpSuccess = function () {
@@ -83,7 +83,7 @@ const signOutSuccess = function () {
   $('#sign-in-link').show();
   $('.sign-in-container').show();
   $('#sign-up').show();
-  $('.search-container').hide();
+  $('.apod-container').hide();
   $('.change-password-container').hide();
   $('.movie-container').hide();
   $('.comment-container').hide();

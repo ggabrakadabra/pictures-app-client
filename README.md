@@ -4,7 +4,13 @@
 
 **Back End Repo:** <https://github.com/ggwilliams/rails-pictures-api>
 
+## Overview
+This web application allows users to view APOD and also save their favorite photos and view them later and also comment on them.
+
 ## About
+To start the front end, I began with testing that the user sign in, sign up, and etc was working properly with the back end. After setting the required files in the appropriate folders, the sign in, sign up and sign out worked properly.
+
+Then I moved on to creating the api calls and the corresponding functions. I started by just indexing the users pictures by clicking a button. Then I needed to create a handlebars file to display the users pictures.
 
 ## Wireframe
 Wireframe:

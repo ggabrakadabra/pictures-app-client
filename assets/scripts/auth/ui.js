@@ -25,8 +25,8 @@ const changePasswordFailure = function () {
 };
 
 
-$('#my-movies-link').hide();
-$('#search-bar-link').hide();
+$('#my-pictures-link').hide();
+$('#apod-link').hide();
 $('#change-password-link').hide();
 $('#sign-out-link').hide();
 $('#comments-link').hide();
@@ -35,14 +35,14 @@ $('#sign-out').hide();
 const signInSuccess = function () {
   $('.message').text('Sign In Successful!');
   $('#sign-in')[0].reset();
-  $('#search-bar-link').addClass('active');
+  $('#apod-link').addClass('active');
   $('#change-password-link').removeClass('active');
-  $('#my-movies-link').removeClass('active');
+  $('#my-pictures-link').removeClass('active');
   $('.search-container').show();
   $('#sign-in-link').hide();
   $('.sign-in-container').hide();
-  $('#my-movies-link').show();
-  $('#search-bar-link').show();
+  $('#my-pictures-link').show();
+  $('#apod-link').show();
   $('#change-password-link').show();
   $('#sign-out-link').show();
   $('#comments-link').show();
@@ -68,8 +68,8 @@ const signOutSuccess = function () {
   $('.message').text('Sign Out Successful!');
   $('#sign-in-link').addClass('active');
   $('.sign-in-container').show();
-  $('#my-movies-link').hide();
-  $('#search-bar-link').hide();
+  $('#my-pictures-link').hide();
+  $('#apod-link').hide();
   $('#change-password-link').hide();
   $('#sign-out-link').hide();
   $('#comments-link').hide();

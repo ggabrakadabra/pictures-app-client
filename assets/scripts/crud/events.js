@@ -138,12 +138,24 @@ const showApod = function () {
     url: `${apodUrl}api_key=${apiKey}`,
     method: 'GET',
     success: function (result) {
-      console.log(result)
-      $('.results').empty()
-      // for (let i = 0; i < results.results.length; i++) {
-      //   const apodResult = apodTemplate(results.results[i]);
-      //   $('.search-results').append();
-      // }
+      $('.apod-results').empty()
+      if ('copyright' in result) {
+        $('#copyright').text('Image Credits: ' + result.copyright)
+      } else {
+        $('#copyright').text('Image Credits: ' + 'Public Domain')
+      }
+
+      if (result.media_type == 'video') {
+        $('#apod_img_id').css('display', 'none')
+        $('#apod_vid_id').attr('src', result.url)
+      } else {
+        $('#apod_vid_id').css('display', 'none')
+        $('#apod_img_id').attr('src', result.url)
+      }
+      // $('#reqObject').text(url)
+      $('#returnObject').text(JSON.stringify(result, null, 4))
+      $('#apod_explaination').text(result.explanation)
+      $('#apod_title').text(result.title)
     }
   })
 }

@@ -66,21 +66,21 @@ const showFavorites = function () {
   })
 }
 
-// const addToFavoritesList = function (data) {
-//   let favoriteParams = {
-//     "favorite": {
-//       "picture_id": data.picture.id.toString()
-//     }
-//   };
-//     return $.ajax({
-//       url: config.apiOrigin + '/favorites',
-//       method: 'POST',
-//       headers: {
-//         Authorization: `Token token=${store.user.token}`,
-//       },
-//       data: favoriteParams,
-//     });
-//   };
+const addToFavoritesList = function (data) {
+  const favoriteParams = {
+    'favorite': {
+      'picture_id': data.picture.id.toString()
+    }
+  }
+  return $.ajax({
+    url: config.apiOrigin + '/favorites',
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: favoriteParams
+  })
+}
 
 const deleteFavorite = function (id) {
   return $.ajax({
@@ -103,7 +103,7 @@ const deleteComment = function (data, id) {
 }
 
 module.exports = {
-  // addToFavoritesList,
+  addToFavoritesList,
   createPictures,
   addComment,
   showPictures,

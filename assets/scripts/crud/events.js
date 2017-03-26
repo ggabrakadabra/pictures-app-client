@@ -2,6 +2,7 @@
 
 const api = require('./api')
 const ui = require('./ui')
+const getFormFields = require('../../../lib/get-form-fields.js')
 const showCommentTemplate = require('../templates/comment.handlebars')
 const showFavoriteTemplate = require('../templates/favorite.handlebars')
 const selectedPictureTemplate = require('../templates/selectedpicture.handlebars')
@@ -38,25 +39,25 @@ const onShowPictures = function (event) {
 const showPictureAndComments = function () {
   api.showComments().done(function (response) {
     $('.comments-list').empty()
-    console.log('Resposne is',response)
-    $('.comments-list').append(selectedPictureTemplate({title:window.currentTitle, id:window.pictureId, description:window.currentDescription, photo:window.photo}));
-      for (let i = 0; i < response.comments.length; i++) {
-        const comment = showCommentTemplate(response.comments[i])
-        const commentPictureId = response.comments[i].picture.id
-        if (commentPictureId == window.pictureId) {
-          $('.comments-list').append(comment)
-        }
+    $('.comments-list').append(selectedPictureTemplate({ title: window.currentTitle, id: window.pictureId, description: window.currentDescription, photo: window.photo }))
+    for (let i = 0; i < response.comments.length; i++) {
+      const comment = showCommentTemplate(response.comments[i])
+      const commentPictureId = response.comments[i].picture.id
+      if (commentPictureId == window.pictureId) {
+        $('.comments-list').append(comment)
       }
-      $('#create-comment').on('submit', function (event) {
-        if (event && event.preventDefault) {
-          event.preventDefault()
-        }
-        const data = getFormFields(event.target)
-        api.addComment(data)
-          .done(showPictureAndComments)
-          .done(ui.addCommentSuccess)
-          .fail(ui.addCommentFailure)
-      })
+    }
+    $('#create-comment').on('submit', function (event) {
+      if (event && event.preventDefault) {
+        event.preventDefault()
+      }
+      const data = getFormFields(event.target)
+      console.log('data is', data)
+      api.addComment(data)
+        .done(showPictureAndComments)
+        .done(ui.addCommentSuccess)
+        .fail(ui.addCommentFailure)
+    })
     $('.delete-comment').on('click', function (event) {
       const commentId = $(event.currentTarget).attr('comment-id')
       api.deleteComment(null, commentId)
@@ -73,7 +74,7 @@ const showPictureAndComments = function () {
           .done(showPictureAndComments)
           .done(ui.updateCommentSucces)
           .fail(ui.updateCommentFailure)
-      })
+    })
     $('.comment').on('mouseover', function (event) {
       // when user hovers over comment, show update comment for users comment only if the user is the author of the comment
       const authorId = $(event.currentTarget).attr('author-id')
@@ -128,6 +129,23 @@ const onShowFavorites = function (event) {
       })
     })
     .fail(ui.fail)
+}
+
+const showApod = function () {
+  const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
+  const apodUrl = 'https://api.nasa.gov/planetary/apod?'
+  $.ajax({
+    url: `${apodUrl}api_key=${apiKey}`,
+    method: 'GET',
+    success: function (result) {
+      console.log(result)
+      $('.results').empty()
+      // for (let i = 0; i < results.results.length; i++) {
+      //   const apodResult = apodTemplate(results.results[i]);
+      //   $('.search-results').append();
+      // }
+    }
+  })
 }
 
 const showMyPictures = function () {
@@ -225,6 +243,7 @@ const addHandlers = () => {
   $('#sign-in-link').on('click', showSignIn)
   $('#change-password-link').on('click', showChangePassword)
   $('#comments-link').on('click', showComments)
+  $('#show-apod').on('click', showApod)
 }
 
 module.exports = {

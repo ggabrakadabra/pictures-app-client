@@ -69,7 +69,7 @@ const showFavorites = function () {
 // const addToFavoritesList = function (data) {
 //   let favoriteParams = {
 //     "favorite": {
-//       "movie_id": data.movie.id.toString()
+//       "picture_id": data.picture.id.toString()
 //     }
 //   };
 //     return $.ajax({

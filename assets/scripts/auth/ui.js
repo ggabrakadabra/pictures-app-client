@@ -50,7 +50,7 @@ const signInSuccess = function () {
   $('#sign-out').show();
   $('.comment-container').show();
   $('.favorite-container').show();
-  $('.movie-container').show();
+  $('.picture-container').show();
   $('.api-apod-container').show();
 };
 
@@ -73,7 +73,7 @@ const signOutSuccess = function () {
   $('#change-password-link').hide();
   $('#sign-out-link').hide();
   $('#comments-link').hide();
-  $('#movies-results').empty();
+  $('#pictures-results').empty();
   $('.comment-results').empty();
   $('.favorite-results').empty();
   $('.search-results').empty();
@@ -85,7 +85,7 @@ const signOutSuccess = function () {
   $('#sign-up').show();
   $('.apod-container').hide();
   $('.change-password-container').hide();
-  $('.movie-container').hide();
+  $('.picture-container').hide();
   $('.comment-container').hide();
   $('.favorites-container').hide();
   $('#search-box').val('');

@@ -57,17 +57,17 @@ body {
   flex-basis: 75%;
 }
 
-.movie-photo {
+.picture-photo {
   flex-basis: auto;
   padding: 2em;
 }
 
-.movie-title {
+.picture-title {
   text-align: center;
   color: #bc509c;
 }
 
-.movie-description {
+.picture-description {
   flex-grow: 1;
   padding: 2em;
 }
@@ -81,7 +81,7 @@ body {
   cursor: pointer;
 }
 
-.movie-favorite:hover .delete-favorite {
+.picture-favorite:hover .delete-favorite {
   display: inline-block;
   cursor: pointer;
 }
@@ -137,7 +137,7 @@ body {
   color: #2ECAFF;
 }
 
-.movie-favorite.selected {
+.picture-favorite.selected {
   background-color: #fce2f4;
 }
 
@@ -145,7 +145,7 @@ body {
   display: flex;
 }
 
-.movie-container {
+.picture-container {
   flex-basis: 33%;
 }
 
@@ -173,7 +173,7 @@ body {
   text-align: center;
 }
 
-.movie-favorite {
+.picture-favorite {
   padding: 1em;
   font-weight: bold;
 }
@@ -264,7 +264,7 @@ legend {
   color: #5b5b5b;
 }
 
-// #movies-results {
+// #pictures-results {
 //   margin-top: 5%;
 //   margin-bottom: 5%;
 //   font-weight: bold;

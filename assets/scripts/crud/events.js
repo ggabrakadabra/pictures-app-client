@@ -6,8 +6,19 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const showCommentTemplate = require('../templates/comment.handlebars')
 const showFavoriteTemplate = require('../templates/favorite.handlebars')
 const selectedPictureTemplate = require('../templates/selectedpicture.handlebars')
-
 // const store = require('../store')
+
+// const onCreatePictures = function(event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   api.createPictures(data)
+//     .done((response) => {
+//       store.picture = response.picture
+//       return store.picture
+//     })
+//     .done(ui.success)
+//     .fail(ui.failure)
+// }
 
 const onShowPictures = function (event) {
   if (event && event.preventDefault) {
@@ -19,22 +30,6 @@ const onShowPictures = function (event) {
     })
     .fail(ui.fail)
 }
-
-// const selectPicture = function(event) {
-//   //want to show picture details in right hand pane
-//   window.pictureId = $(event.currentTarget).attr('picture-id');
-//   window.photo = $(event.currentTarget).attr('picture-photo');
-//   window.currentTitle = $(event.currentTarget).attr('picture-title');
-//   window.currentDescription = $(event.currentTarget).attr('picture-description');
-//   $('.comments-list').empty();
-//   showPictureAndComments(window.pictureId);
-//   //for every comment, if the title of the picture is the one selected
-//   //then append it to the right hand pane
-//   //otherwise ignore it
-//   $('.picture-favorite').removeClass('selected');
-//   $(event.currentTarget).addClass('selected');
-//   $('.comments-list').show();
-// };
 
 const showPictureAndComments = function () {
   api.showComments().done(function (response) {
@@ -138,7 +133,6 @@ const showApod = function () {
     url: `${apodUrl}api_key=${apiKey}`,
     method: 'GET',
     success: function (result) {
-      $('.apod-results').empty()
       if ('copyright' in result) {
         $('#copyright').text('Image Credits: ' + result.copyright)
       } else {
@@ -156,21 +150,48 @@ const showApod = function () {
       $('#returnObject').text(JSON.stringify(result, null, 4))
       $('#apod_explaination').text(result.explanation)
       $('#apod_title').text(result.title)
+      $('#save-apod').on('click', function (event, data) {
+        event.preventDefault()
+        api.createPictures(data)
+          .done(ui.savedPicture)
+          .fail(ui.fail)
+          .done(api.addToFavoritesList)
+          .done(ui.addPictureToFavorites)
+          .fail(ui.addFavoriteFail)
+      })
     }
   })
+}
+
+const savePictureToFavorites = function (event) {
+  event.preventDefault()
+  const data = {
+    picture: {
+      title: event.currentTarget.title,
+      description: event.currentTarget.explanation,
+      photo: event.currentTarget.hdurl
+    }
+  }
+  api.createPictures(data)
+  console.log('cata is', data)
+    .done(ui.savedPicture)
+    .fail(ui.fail)
+    .done(api.addToFavoritesList)
+    .done(ui.addPictureToFavorites)
+    .fail(ui.addFavoriteFail)
 }
 
 const showMyPictures = function () {
   $('#my-pictures-link').addClass('active')
   $('.favorites-container').show()
   $('.delete-favorite').show()
-  $('#search-bar-link').removeClass('active')
+  $('#apod-link').removeClass('active')
   $('#sign-in-link').removeClass('active')
   $('#change-password-link').removeClass('active')
   $('#comments-link').removeClass('active')
   $('#sign-out-link').removeClass('active')
   $('.comment-container').hide()
-  $('.search-container').hide()
+  $('.apod-container').hide()
   $('.sign-in-container').hide()
   $('.change-password-container').hide()
   $('.picture-container').hide()
@@ -179,9 +200,9 @@ const showMyPictures = function () {
 }
 
 // show search bar and hide favorites
-const showSearchBar = function() {
-  $('#search-bar-link').addClass('active')
-  $('.search-container').show()
+const showApodContainer = function () {
+  $('#apod-link').addClass('active')
+  $('.apod-container').show()
   $('.picture-container').show()
   $('#my-pictures-link').removeClass('active')
   $('#sign-in-link').removeClass('active')
@@ -193,6 +214,8 @@ const showSearchBar = function() {
   $('.sign-in-container').hide()
   $('.change-password-container').hide()
   $('.comment-container').hide()
+
+  showApod()
 }
 
 // show sign in
@@ -200,13 +223,13 @@ const showSignIn = function () {
   $('#sign-in-link').addClass('active')
   $('.sign-in-container').show()
   $('#my-pictures-link').removeClass('active')
-  $('#search-bar-link').removeClass('active')
+  $('#apod-link').removeClass('active')
   $('#change-password-link').removeClass('active')
   $('#sign-out-link').removeClass('active')
   $('#comments-link').removeClass('active')
   $('.comment-container').hide()
   $('.favorites-container').hide()
-  $('.search-container').hide()
+  $('.apod-container').hide()
   $('.change-password-container').hide()
   $('.picture-container').hide()
 }
@@ -216,12 +239,12 @@ const showChangePassword = function () {
   $('#change-password-link').addClass('active')
   $('.change-password-container').show()
   $('#my-pictures-link').removeClass('active')
-  $('#search-bar-link').removeClass('active')
+  $('#apod-link').removeClass('active')
   $('#sign-in-link').removeClass('active')
   $('#comments-link').removeClass('active')
   $('.sign-in-container').hide()
   $('.favorites-container').hide()
-  $('.search-container').hide()
+  $('.apod-container').hide()
   $('.comment-container').hide()
   $('.picture-container').hide()
 }
@@ -232,17 +255,18 @@ const showComments = function () {
   $('#sign-out-link').removeClass('active')
   $('#change-password-link').removeClass('active')
   $('#my-pictures-link').removeClass('active')
-  $('#search-bar-link').removeClass('active')
+  $('#apod-link').removeClass('active')
   $('#sign-in-link').removeClass('active')
   $('.sign-in-container').hide()
   $('.favorites-container').hide()
-  $('.search-container').hide()
+  $('.apod-container').hide()
   $('.change-password-container').hide()
   $('.picture-container').hide()
 }
 
 const addHandlers = () => {
   $('#saved-pictures').on('click', onShowPictures)
+  $('#save-apod').on('click', savePictureToFavorites)
   $('#my-pictures-link').on('click', showMyPictures)
   $('#show-favorites').on('click', onShowFavorites)
   // $('#saved-pictures').on('click', onShowPictures);
@@ -251,11 +275,11 @@ const addHandlers = () => {
   // $('#add-favorite').on('submit', onAddToFavoritesList)
   // $('#create-picture').on('submit', onCreatePictures)
   // $('#my-pictures-link').on('click', showMyPictures)
-  $('#search-bar-link').on('click', showSearchBar)
+  $('#apod-link').on('click', showApodContainer)
   $('#sign-in-link').on('click', showSignIn)
   $('#change-password-link').on('click', showChangePassword)
   $('#comments-link').on('click', showComments)
-  $('#show-apod').on('click', showApod)
+  // $('#show-apod').on('click', showApod)
 }
 
 module.exports = {

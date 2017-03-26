@@ -1,9 +1,9 @@
 'use strict';
 
-const api = require('./api');
-const ui = require('./ui');
-const getFormFields = require('../../../lib/get-form-fields.js');
-const store = require('../store');
+const api = require('./api')
+const ui = require('./ui')
+const getFormFields = require('../../../lib/get-form-fields.js')
+const store = require('../store')
 
 const onSignUp = function (event) {
   event.preventDefault();

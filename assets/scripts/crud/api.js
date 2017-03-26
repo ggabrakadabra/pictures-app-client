@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const createPictures = function (data) {
+  console.log('api data', data)
   return $.ajax({
     url: config.apiOrigin + '/pictures',
     method: 'POST',
@@ -72,6 +73,7 @@ const addToFavoritesList = function (data) {
       'picture_id': data.picture.id.toString()
     }
   }
+  console.log('api data', data)
   return $.ajax({
     url: config.apiOrigin + '/favorites',
     method: 'POST',

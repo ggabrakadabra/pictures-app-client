@@ -1,29 +1,24 @@
-'use strict';
+'use strict'
 
-// const events = require('../crud/events');
-const api = require('./api');
-
+const events = require('../crud/events.js')
+// const api = require('./api')
 
 const success = (data) => {
-  if (data) {
-    console.log(data);
-  }
-};
+}
 
 const failure = (error) => {
-  $('.message').text('Error!!!');
-};
+  $('.message').text('Error!!!')
+}
 
 const SignInFailure = function () {
-  $('.message').text('Invalid Email or Password');
-  $('#sign-in')[0].reset();
-};
+  $('.message').text('Invalid Email or Password')
+  $('#sign-in')[0].reset()
+}
 
 const changePasswordFailure = function () {
-  $('.message').text('Invalid Password!');
-  $('#change-password')[0].reset();
-};
-
+  $('.message').text('Invalid Password!')
+  $('#change-password')[0].reset()
+}
 
 $('#my-pictures-link').hide();
 $('#apod-link').hide();
@@ -52,7 +47,9 @@ const signInSuccess = function () {
   $('.favorite-container').show();
   $('.picture-container').show();
   $('.api-apod-container').show();
-};
+
+  events.showApod()
+}
 
 const signUpSuccess = function () {
   $('.message').text('Sign Up Successful!');
@@ -100,5 +97,5 @@ module.exports = {
   changePasswordFailure,
   signUpSuccess,
   SignInFailure,
-  changePasswordSuccess,
+  changePasswordSuccess
 };

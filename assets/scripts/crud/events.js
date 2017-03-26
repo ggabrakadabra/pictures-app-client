@@ -223,6 +223,45 @@ const searchSoundsApi = function () {
   })
 }
 
+const searchAsteroidApi = function () {
+  const startDate = $('#start-date').val()
+  const endDate = $('#end-date').val()
+  const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
+  const neoUrl = 'https://api.nasa.gov/neo/rest/v1/feed?'
+  $.ajax({
+    url: `${neoUrl}start_date=${startDate}&end_date=${endDate}&api_key=${apiKey}`,
+    method: 'GET'
+  }).done(function (results) {
+    // success: function (data) {
+    console.log(results)
+    $('.search-results').empty()
+    // for (let i = 0; i < results.results.length; i++) {
+    //   let singleSearchResult = showMovieTemplate(results.results[i]);
+    //   $('.search-results').append(singleSearchResult);
+    // }
+    // }
+  })
+}
+
+const searchMarsRoverApi = function () {
+  const earthDate = $('#earth-date').val()
+  const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
+  const marsUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?'
+  $.ajax({
+    url: `${marsUrl}earth_date=${earthDate}&api_key=${apiKey}`,
+    method: 'GET'
+  }).done(function (results) {
+    // success: function (data) {
+    console.log(results)
+    $('.search-results').empty()
+    // for (let i = 0; i < results.results.length; i++) {
+    //   let singleSearchResult = showMovieTemplate(results.results[i]);
+    //   $('.search-results').append(singleSearchResult);
+    // }
+    // }
+  })
+}
+
 const showMyPictures = function () {
   $('#my-pictures-link').addClass('active')
   $('.favorites-container').show()
@@ -342,6 +381,8 @@ const addHandlers = () => {
   // $('#saved-pictures').on('click', onShowPictures);
   $('#search-box').on('keypress', searchPatentsApi)
   $('#search-box').on('keypress', searchSoundsApi)
+  $('.search-dates').on('click', searchAsteroidApi)
+  $('.search-by-date').on('click', searchMarsRoverApi)
   // $('#search-box').on('keypress', searchGameApi)
   // $('#add-favorite').on('submit', onAddToFavoritesList)
   // $('#create-picture').on('submit', onCreatePictures)

@@ -6,6 +6,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const showCommentTemplate = require('../templates/comment.handlebars')
 const showFavoriteTemplate = require('../templates/favorite.handlebars')
 const selectedPictureTemplate = require('../templates/selectedpicture.handlebars')
+const marsTemplate = require('../templates/marsrover.handlebars')
 // const store = require('../store')
 
 // const onCreatePictures = function(event) {
@@ -251,14 +252,12 @@ const searchMarsRoverApi = function () {
     url: `${marsUrl}earth_date=${earthDate}&api_key=${apiKey}`,
     method: 'GET'
   }).done(function (results) {
-    // success: function (data) {
     console.log(results)
-    $('.search-results').empty()
-    // for (let i = 0; i < results.results.length; i++) {
-    //   let singleSearchResult = showMovieTemplate(results.results[i]);
-    //   $('.search-results').append(singleSearchResult);
-    // }
-    // }
+    $('.mars-search-results').empty()
+    for (let i = 0; i < results.photos.length; i++) {
+      const singleSearchResult = marsTemplate(results.photos[i])
+      $('.mars-search-results').append(singleSearchResult)
+    }
   })
 }
 

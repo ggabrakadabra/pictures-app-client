@@ -105,16 +105,23 @@
          <label>Search</label>
          <input type="text" id="search-box" placeholder="Search">
        </div>
-       <div class="search-date">
-         <input type="date" id="start-date">
-         <input type="date" id="end-date">
-         <button class="btn-primary search-dates">Search</button>
+       <div class="search-by-date">
+         <div class="search-asteroid">
+            <div class="search-asteroid-date">
+              <input type="date" id="start-date">
+              <input type="date" id="end-date">
+              <button class="btn-primary search-dates">Search</button>
+            </div>
+           <div class="asteroid-search-results"></div>
+         </div>
+         <div class="search-mars">
+             <div class="search-mars-date">
+               <input type="date" id="earth-date">
+               <button class="btn-primary search-by-date">Search Mars Rover</button>
+             </div>
+            <div class="mars-search-results"></div>
+         </div>
        </div>
-       <div class="search-mars-date">
-         <input type="date" id="earth-date">
-         <button class="btn-primary search-by-date">Search Mars Rover</button>
-       </div>
-       <div class="search-results"></div>
       </div>
        <!-- this will be the div for the search bar -->
       <div class="apod-container">

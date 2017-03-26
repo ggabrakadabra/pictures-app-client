@@ -1,6 +1,6 @@
 'use strict'
 
-const events = require('../crud/events.js')
+// const events = require('../crud/events.js')
 // const api = require('./api')
 
 const success = (data) => {
@@ -48,7 +48,6 @@ const signInSuccess = function () {
   $('.picture-container').show();
   $('.api-apod-container').show();
 
-  events.showApod()
 }
 
 const signUpSuccess = function () {
@@ -59,7 +58,7 @@ const signUpSuccess = function () {
 const changePasswordSuccess = function () {
   $('.message').text('Changed Password!!');
   $('#change-password')[0].reset();
-};
+}
 
 const signOutSuccess = function () {
   $('.message').text('Sign Out Successful!');

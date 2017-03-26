@@ -202,6 +202,27 @@ const searchPatentsApi = function () {
   })
 }
 
+const searchSoundsApi = function () {
+  const searchText = $('#search-box').val()
+  const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
+  const soundUrl = 'https://api.nasa.gov/planetary/sounds?'
+  $.ajax({
+    url: `${soundUrl}q=${searchText}&api_key=${apiKey}`,
+    dataType: 'JSONP',
+        // crossDomain: true,
+    jsonp: 'json_callback',
+    method: 'GET',
+    success: function (data) {
+      console.log(data)
+      $('.search-results').empty()
+    // for (let i = 0; i < results.results.length; i++) {
+    //   let singleSearchResult = showMovieTemplate(results.results[i]);
+    //   $('.search-results').append(singleSearchResult);
+    // }
+    }
+  })
+}
+
 const showMyPictures = function () {
   $('#my-pictures-link').addClass('active')
   $('.favorites-container').show()
@@ -320,6 +341,7 @@ const addHandlers = () => {
   $('#show-favorites').on('click', onShowFavorites)
   // $('#saved-pictures').on('click', onShowPictures);
   $('#search-box').on('keypress', searchPatentsApi)
+  $('#search-box').on('keypress', searchSoundsApi)
   // $('#search-box').on('keypress', searchGameApi)
   // $('#add-favorite').on('submit', onAddToFavoritesList)
   // $('#create-picture').on('submit', onCreatePictures)

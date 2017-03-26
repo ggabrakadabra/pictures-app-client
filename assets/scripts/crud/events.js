@@ -181,6 +181,27 @@ const savePictureToFavorites = function (event) {
     .fail(ui.addFavoriteFail)
 }
 
+const searchPatentsApi = function () {
+  const searchText = $('#search-box').val()
+  const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
+  const patentUrl = 'https://api.nasa.gov/patents/content?'
+  $.ajax({
+    url: `${patentUrl}query=${searchText}&api_key=${apiKey}`,
+    dataType: 'JSONP',
+        // crossDomain: true,
+    jsonp: 'json_callback',
+    method: 'GET',
+    success: function (data) {
+      console.log(data)
+      $('.search-results').empty()
+    // for (let i = 0; i < results.results.length; i++) {
+    //   let singleSearchResult = showMovieTemplate(results.results[i]);
+    //   $('.search-results').append(singleSearchResult);
+    // }
+    }
+  })
+}
+
 const showMyPictures = function () {
   $('#my-pictures-link').addClass('active')
   $('.favorites-container').show()
@@ -188,9 +209,11 @@ const showMyPictures = function () {
   $('#apod-link').removeClass('active')
   $('#sign-in-link').removeClass('active')
   $('#change-password-link').removeClass('active')
+  $('#search-bar-link').removeClass('active')
   $('#comments-link').removeClass('active')
   $('#sign-out-link').removeClass('active')
   $('.comment-container').hide()
+  $('.search-container').hide()
   $('.apod-container').hide()
   $('.sign-in-container').hide()
   $('.change-password-container').hide()
@@ -208,8 +231,10 @@ const showApodContainer = function () {
   $('#sign-in-link').removeClass('active')
   $('#change-password-link').removeClass('active')
   $('#sign-out-link').removeClass('active')
+  $('#search-bar-link').removeClass('active')
   $('#comments-link').removeClass('active')
   $('.comment-container').hide()
+  $('.search-container').hide()
   $('.favorites-container').hide()
   $('.sign-in-container').hide()
   $('.change-password-container').hide()
@@ -225,10 +250,12 @@ const showSignIn = function () {
   $('#my-pictures-link').removeClass('active')
   $('#apod-link').removeClass('active')
   $('#change-password-link').removeClass('active')
+  $('#search-bar-link').removeClass('active')
   $('#sign-out-link').removeClass('active')
   $('#comments-link').removeClass('active')
   $('.comment-container').hide()
   $('.favorites-container').hide()
+  $('.search-container').hide()
   $('.apod-container').hide()
   $('.change-password-container').hide()
   $('.picture-container').hide()
@@ -241,11 +268,13 @@ const showChangePassword = function () {
   $('#my-pictures-link').removeClass('active')
   $('#apod-link').removeClass('active')
   $('#sign-in-link').removeClass('active')
+  $('#search-bar-link').removeClass('active')
   $('#comments-link').removeClass('active')
   $('.sign-in-container').hide()
   $('.favorites-container').hide()
   $('.apod-container').hide()
   $('.comment-container').hide()
+  $('.search-container').hide()
   $('.picture-container').hide()
 }
 
@@ -255,13 +284,33 @@ const showComments = function () {
   $('#sign-out-link').removeClass('active')
   $('#change-password-link').removeClass('active')
   $('#my-pictures-link').removeClass('active')
+  $('#search-bar-link').removeClass('active')
   $('#apod-link').removeClass('active')
   $('#sign-in-link').removeClass('active')
   $('.sign-in-container').hide()
   $('.favorites-container').hide()
   $('.apod-container').hide()
+  $('.search-container').hide()
   $('.change-password-container').hide()
   $('.picture-container').hide()
+}
+
+const showSearchBar = function () {
+  $('#search-bar-link').addClass('active')
+  $('.search-container').show()
+  $('.movie-container').show()
+  $('#my-movies-link').removeClass('active')
+  $('#apod-link').removeClass('active')
+  $('#sign-in-link').removeClass('active')
+  $('#change-password-link').removeClass('active')
+  $('#sign-out-link').removeClass('active')
+  $('#comments-link').removeClass('active')
+  $('.comment-container').hide()
+  $('.apod-container').hide()
+  $('.favorites-container').hide()
+  $('.sign-in-container').hide()
+  $('.change-password-container').hide()
+  $('.comment-container').hide()
 }
 
 const addHandlers = () => {
@@ -270,7 +319,7 @@ const addHandlers = () => {
   $('#my-pictures-link').on('click', showMyPictures)
   $('#show-favorites').on('click', onShowFavorites)
   // $('#saved-pictures').on('click', onShowPictures);
-  // $('#search-box').on('keypress', searchPictureApi)
+  $('#search-box').on('keypress', searchPatentsApi)
   // $('#search-box').on('keypress', searchGameApi)
   // $('#add-favorite').on('submit', onAddToFavoritesList)
   // $('#create-picture').on('submit', onCreatePictures)
@@ -279,6 +328,7 @@ const addHandlers = () => {
   $('#sign-in-link').on('click', showSignIn)
   $('#change-password-link').on('click', showChangePassword)
   $('#comments-link').on('click', showComments)
+  $('#search-bar-link').on('click', showSearchBar)
   // $('#show-apod').on('click', showApod)
 }
 

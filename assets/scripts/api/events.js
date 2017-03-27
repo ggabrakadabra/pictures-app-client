@@ -1,4 +1,5 @@
 'use strict'
+const store = require('../store')
 const marsTemplate = require('../templates/marsrover.handlebars')
 // const showSoundsTemplate = require('../templates/sounds.handlebars')
 const apodTemplate = require('../templates/apod.handlebars')
@@ -46,46 +47,53 @@ const showApod = function () {
 //     .fail(ui.addFavoriteFail)
 // })
 
-const searchPatentsApi = function() {
+const searchPatentsApi = function () {
   const searchText = $('#search-box').val()
-  const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
-  const patentUrl = 'https://api.nasa.gov/patents/content?'
-  $.ajax({
-    url: `${patentUrl}query=${searchText}&api_key=${apiKey}`,
-    dataType: 'JSONP',
-    // crossDomain: true,
-    jsonp: 'json_callback',
-    method: 'GET',
-    success: function(data) {
-      console.log('patent data', data)
-      $('.search-results').empty()
-      // for (let i = 0; i < results.results.length; i++) {
-      //   let singleSearchResult = showMovieTemplate(results.results[i]);
-      //   $('.search-results').append(singleSearchResult);
-      // }
+  const data = {
+    search: {
+      query: searchText
     }
+  }
+  const patentUrl = 'http://localhost:4741/search/patents'
+  $.ajax({
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    url: `${patentUrl}`,
+    method: 'POST',
+    data: data
+  }).done(function (results) {
+    console.log('patent data', results)
+    $('.search-results').empty()
+    // for (let i = 0; i < results.results.length; i++) {
+    //   let singleSearchResult = showMovieTemplate(results.results[i]);
+    //   $('.search-results').append(singleSearchResult);
+    // }
   })
 }
 
-const searchSoundsApi = function() {
+const searchSoundsApi = function () {
   const searchText = $('#search-box').val()
-  const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
-  const soundUrl = 'https://api.nasa.gov/planetary/sounds'
+  const data = {
+    search: {
+      query: searchText
+    }
+  }
+  const soundUrl = 'http://localhost:4741/search/sounds'
   $.ajax({
-    url: `${soundUrl}?q=${searchText}&api_key=${apiKey}`,
-    dataType: 'JSONP',
-    // crossDomain: true,
-    // data: dataString,
-    jsonp: 'json_callback',
-    method: 'GET'
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    url: `${soundUrl}`,
+    method: 'POST',
+    data: data
+  }).done(function (results) {
+    console.log('sound results', results)
+      // for (let i = 0; i < result.results.length; i++) {
+      //   const singleSearchResult = showSoundsTemplate(result.results[i])
+      //   $('.single-search-result-sounds').append(singleSearchResult)
+      // }
   })
-  // .then(function (results) {
-  //   console.log('sound results')
-  //     // for (let i = 0; i < result.results.length; i++) {
-  //     //   const singleSearchResult = showSoundsTemplate(result.results[i])
-  //     //   $('.single-search-result-sounds').append(singleSearchResult)
-  //     // }
-  // })
 }
 
 const neoDailyFeed = function() {

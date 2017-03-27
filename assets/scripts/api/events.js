@@ -1,7 +1,8 @@
 'use strict'
 const store = require('../store')
 const marsTemplate = require('../templates/marsrover.handlebars')
-// const showSoundsTemplate = require('../templates/sounds.handlebars')
+const soundsTemplate = require('../templates/sounds.handlebars')
+const patentsTemplate = require('../templates/patents.handlebars')
 const apodTemplate = require('../templates/apod.handlebars')
 const neoTemplate = require('../templates/neo.handlebars')
 
@@ -11,7 +12,7 @@ const showApod = function () {
   $.ajax({
     url: `${apodUrl}api_key=${apiKey}`,
     method: 'GET'
-  }).then(function(results) {
+  }).then(function (results) {
     console.log('apod', results)
     $('.apod-results').empty()
     const apodResult = apodTemplate(results)
@@ -64,11 +65,10 @@ const searchPatentsApi = function () {
     data: data
   }).done(function (results) {
     console.log('patent data', results)
-    $('.search-results').empty()
-    // for (let i = 0; i < results.results.length; i++) {
-    //   let singleSearchResult = showMovieTemplate(results.results[i]);
-    //   $('.search-results').append(singleSearchResult);
-    // }
+    for (let i = 0; i < results.results.length; i++) {
+      const singleSearchResult = patentsTemplate(results.results[i])
+      $('.single-search-result-patents').append(singleSearchResult)
+    }
   })
 }
 
@@ -89,10 +89,10 @@ const searchSoundsApi = function () {
     data: data
   }).done(function (results) {
     console.log('sound results', results)
-      // for (let i = 0; i < result.results.length; i++) {
-      //   const singleSearchResult = showSoundsTemplate(result.results[i])
-      //   $('.single-search-result-sounds').append(singleSearchResult)
-      // }
+    for (let i = 0; i < results.results.length; i++) {
+      const singleSearchResult = soundsTemplate(results.results[i])
+      $('.single-search-result-sounds').append(singleSearchResult)
+    }
   })
 }
 

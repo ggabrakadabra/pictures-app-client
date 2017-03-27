@@ -1,8 +1,10 @@
-<div class="">
-  <h3>Title: {{title}}</h3>
-    <div class="">
-      <img src="{{hdurl}}" class=""></img>
-      <div class="">Desription: {{{explanation}}}</div>
+<div class="apod-results">
+  <h2>Astronomy Picture of the Day</h2>
+    <div class="apod-image-and-description">
+      <img src="{{hdurl}}" class="apod-photo">{{hdurl}}</img>
+      <h4 class="apod-description"> <h3>Desription:</h3> {{{explanation}}}</h4>
+      <h3>Title: {{title}}</h3>
+      <h3> Date: {{date}}</h3>
   </div>
-    <div>Date: {{date}}</div>
+  <input type="submit" class="btn btn-primary" name="submit" value="Save to Favorites">
 </div>

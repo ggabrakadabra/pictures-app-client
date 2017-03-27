@@ -101,40 +101,41 @@
       </div>
             <!-- this will be the div for the search bar -->
       <div class="search-container" style="display: none;">
-       <div class="search-bar">
-         <label>Search</label>
-         <input type="text" id="search-box" placeholder="Search">
-       </div>
-       <div class="search-by-date">
-         <div class="search-asteroid">
-            <div class="search-asteroid-date">
-              <input type="date" id="start-date">
-              <input type="date" id="end-date">
-              <button class="btn-primary search-dates">Search</button>
+        <div class="search-parameters">
+          <div class="search-bar">
+            <h4>Search Sounds</h4>
+            <input type="text" id="search-box" placeholder="Search by Keyword">
+            <button class="btn-primary sounds-search">Search Sounds</button>
+            <button class="btn-primary patents-search">Search Patents</button>
+          </div>
+
+          <div class="search-by-date">
+            <div class="search-mars">
+              <h4>Search Mars Rover photos by date</h4>
+              <p>Search through photos by date</p>
+                <div class="search-mars-date">
+                  <input type="date" id="earth-date">
+                  <button class="btn-primary search-by-date">Search Mars Rover Photos</button>
+                </div>
             </div>
-           <div class="asteroid-search-results"></div>
-         </div>
-         <div class="search-mars">
-             <div class="search-mars-date">
-               <input type="date" id="earth-date">
-               <button class="btn-primary search-by-date">Search Mars Rover</button>
-             </div>
-            <div class="mars-search-results"></div>
-         </div>
-       </div>
+          </div>
+        </div>
+        <div class="search-results">
+          <div class="single-search-result-sounds"></div>
+          <div class="single-search-result-patents"></div>
+          <div class="mars-search-results"></div>
+        </div>
       </div>
        <!-- this will be the div for the search bar -->
       <div class="apod-container">
-        <button class="btn-primary" id="save-apod">Save To Favorites</button>
-        <div class="apod-results">
-          <img id="apod_img_id" alt="" src="" width="250px"/>
-          <iframe id="apod_vid_id" width="640" height="385" frameborder="0"></iframe>
-          <p id="copyright"></p>
-          <h3 id="apod_title"></h3>
-          <p id="apod_explaination"></p>
-          <br/>
-        </div>
-
+        <div class="neo-results"></div>
+        <!-- <div class="epic-container">
+          <input type="date" id="epic-search-date">
+          <button class="show-epic-photos">Show Epic Photots</button>
+          <div class="epic-results"></div>
+        </div> -->
+          <div class="apod-results">
+          </div>
       </div>
 
     </body>

@@ -7,6 +7,9 @@ const showCommentTemplate = require('../templates/comment.handlebars')
 const showFavoriteTemplate = require('../templates/favorite.handlebars')
 const selectedPictureTemplate = require('../templates/selectedpicture.handlebars')
 const marsTemplate = require('../templates/marsrover.handlebars')
+// const showSoundsTemplate = require('../templates/sounds.handlebars')
+const apodTemplate = require('../templates/apod.handlebars')
+const neoTemplate = require('../templates/neo.handlebars')
 // const store = require('../store')
 
 // const onCreatePictures = function(event) {
@@ -132,37 +135,41 @@ const showApod = function () {
   const apodUrl = 'https://api.nasa.gov/planetary/apod?'
   $.ajax({
     url: `${apodUrl}api_key=${apiKey}`,
-    method: 'GET',
-    success: function (result) {
-      if ('copyright' in result) {
-        $('#copyright').text('Image Credits: ' + result.copyright)
-      } else {
-        $('#copyright').text('Image Credits: ' + 'Public Domain')
+    method: 'GET'
+  }).done(function (results) {
+    console.log('apod', results)
+    const apodResult = apodTemplate(results)
+    $('.apod-results').append(apodResult)
+    $('.apod-results').on('click', function (event) {
+      event.preventDefault()
+      console.log('event', event.currentTarget)
+      const data = {
+        picture: {
+          title: event.currentTarget.children[0],
+          description: event.currentTarget.children[1],
+          photo: event.currentTarget.children[1].children[0]
+        }
       }
-
-      if (result.media_type == 'video') {
-        $('#apod_img_id').css('display', 'none')
-        $('#apod_vid_id').attr('src', result.url)
-      } else {
-        $('#apod_vid_id').css('display', 'none')
-        $('#apod_img_id').attr('src', result.url)
-      }
-      // $('#reqObject').text(url)
-      $('#returnObject').text(JSON.stringify(result, null, 4))
-      $('#apod_explaination').text(result.explanation)
-      $('#apod_title').text(result.title)
-      $('#save-apod').on('click', function (event, data) {
-        event.preventDefault()
-        api.createPictures(data)
-          .done(ui.savedPicture)
-          .fail(ui.fail)
-          .done(api.addToFavoritesList)
-          .done(ui.addPictureToFavorites)
-          .fail(ui.addFavoriteFail)
-      })
-    }
+      //   api.createPictures(data)
+      //     .done(ui.savedPicture)
+      //     .fail(ui.fail)
+      //     .done(api.addToFavoritesList)
+      //     .done(ui.addPictureToFavorites)
+      //     .fail(ui.addFavoriteFail)
+      // })
+      console.log('data is', data)
+    })
   })
 }
+      // $('.apod-results').on('click', function (event, data) {
+      //   event.preventDefault()
+      //   api.createPictures(data)
+      //     .done(ui.savedPicture)
+      //     .fail(ui.fail)
+      //     .done(api.addToFavoritesList)
+      //     .done(ui.addPictureToFavorites)
+      //     .fail(ui.addFavoriteFail)
+      // })
 
 const savePictureToFavorites = function (event) {
   event.preventDefault()
@@ -193,7 +200,7 @@ const searchPatentsApi = function () {
     jsonp: 'json_callback',
     method: 'GET',
     success: function (data) {
-      console.log(data)
+      console.log('patent data', data)
       $('.search-results').empty()
     // for (let i = 0; i < results.results.length; i++) {
     //   let singleSearchResult = showMovieTemplate(results.results[i]);
@@ -210,37 +217,30 @@ const searchSoundsApi = function () {
   $.ajax({
     url: `${soundUrl}q=${searchText}&api_key=${apiKey}`,
     dataType: 'JSONP',
-        // crossDomain: true,
+    // crossDomain: true,
     jsonp: 'json_callback',
     method: 'GET',
-    success: function (data) {
-      console.log(data)
-      $('.search-results').empty()
-    // for (let i = 0; i < results.results.length; i++) {
-    //   let singleSearchResult = showMovieTemplate(results.results[i]);
-    //   $('.search-results').append(singleSearchResult);
-    // }
+    success: function (result) {
+      console.log('sound results', result.results)
+      // for (let i = 0; i < result.results.length; i++) {
+      //   const singleSearchResult = showSoundsTemplate(result.results[i])
+      //   $('.single-search-result-sounds').append(singleSearchResult)
+      // }
     }
   })
 }
 
-const searchAsteroidApi = function () {
-  const startDate = $('#start-date').val()
-  const endDate = $('#end-date').val()
+const neoDailyFeed = function () {
   const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
-  const neoUrl = 'https://api.nasa.gov/neo/rest/v1/feed?'
+  const neoUrl = 'https://api.nasa.gov/neo/rest/v1/feed/today?'
   $.ajax({
-    url: `${neoUrl}start_date=${startDate}&end_date=${endDate}&api_key=${apiKey}`,
+    url: `${neoUrl}detailed=true&api_key=${apiKey}`,
     method: 'GET'
   }).done(function (results) {
-    // success: function (data) {
-    console.log(results)
-    $('.search-results').empty()
-    // for (let i = 0; i < results.results.length; i++) {
-    //   let singleSearchResult = showMovieTemplate(results.results[i]);
-    //   $('.search-results').append(singleSearchResult);
-    // }
-    // }
+    $('.neo-results').empty()
+    console.log('neo results', results)
+    const neoResults = neoTemplate(results)
+    $('.neo-results').append(neoResults)
   })
 }
 
@@ -252,7 +252,7 @@ const searchMarsRoverApi = function () {
     url: `${marsUrl}earth_date=${earthDate}&api_key=${apiKey}`,
     method: 'GET'
   }).done(function (results) {
-    console.log(results)
+    console.log('mars', results)
     $('.mars-search-results').empty()
     for (let i = 0; i < results.photos.length; i++) {
       const singleSearchResult = marsTemplate(results.photos[i])
@@ -260,6 +260,22 @@ const searchMarsRoverApi = function () {
     }
   })
 }
+
+// const showEarthImagery = function () {
+//   const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
+//   const searchDate = $('#epic-search-date').val()
+//   const earthUrl = 'https://api.nasa.gov/planetary/earth/imagery?'
+//   $.ajax({
+//     url: `${earthUrl}lon=100.75&lat=1.5&date=${searchDate}&cloud_score=True&api_key=${apiKey}`,
+//     method: 'GET'
+//   }).done(function (response) {
+//     console.log('epic response', response)
+//     for (let i = 0; i < response.length; i++) {
+//       const singleSearchResult = epicTemplate(response)
+//       $('.epic-results').append(singleSearchResult)
+//     }
+//   })
+// }
 
 const showMyPictures = function () {
   $('#my-pictures-link').addClass('active')
@@ -374,14 +390,15 @@ const showSearchBar = function () {
 
 const addHandlers = () => {
   $('#saved-pictures').on('click', onShowPictures)
-  $('#save-apod').on('click', savePictureToFavorites)
+  $('#save-apod').on('submit', savePictureToFavorites)
   $('#my-pictures-link').on('click', showMyPictures)
   $('#show-favorites').on('click', onShowFavorites)
   // $('#saved-pictures').on('click', onShowPictures);
-  $('#search-box').on('keypress', searchPatentsApi)
-  $('#search-box').on('keypress', searchSoundsApi)
-  $('.search-dates').on('click', searchAsteroidApi)
+  $('.patents-search').on('click', searchPatentsApi)
+  $('.sounds-search').on('click', searchSoundsApi)
+  $('#apod-link').on('click', neoDailyFeed)
   $('.search-by-date').on('click', searchMarsRoverApi)
+  // $('.show-epic-photos').on('click', showEarthImagery)
   // $('#search-box').on('keypress', searchGameApi)
   // $('#add-favorite').on('submit', onAddToFavoritesList)
   // $('#create-picture').on('submit', onCreatePictures)

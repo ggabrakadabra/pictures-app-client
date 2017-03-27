@@ -138,6 +138,7 @@ const showApod = function () {
     method: 'GET'
   }).done(function (results) {
     console.log('apod', results)
+    $('.apod-results').empty()
     const apodResult = apodTemplate(results)
     $('.apod-results').append(apodResult)
     $('.apod-results').on('click', function (event) {
@@ -374,7 +375,7 @@ const showSearchBar = function () {
   $('#search-bar-link').addClass('active')
   $('.search-container').show()
   $('.movie-container').show()
-  $('#my-movies-link').removeClass('active')
+  $('#my-pictures-link').removeClass('active')
   $('#apod-link').removeClass('active')
   $('#sign-in-link').removeClass('active')
   $('#change-password-link').removeClass('active')

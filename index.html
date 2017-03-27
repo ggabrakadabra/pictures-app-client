@@ -52,6 +52,7 @@
        </nav>
        <!-- Add sign in div -->
        <div class="sign-in-container">
+        <div class="neo-results"></div>
          <form id="sign-up">
            <fieldset>
              <label>
@@ -128,7 +129,14 @@
       </div>
        <!-- this will be the div for the search bar -->
       <div class="apod-container">
-        <div class="neo-results"></div>
+        <div class="search-apod">
+          <h4>Search APOD photos by date</h4>
+          <p>Search through photos by date</p>
+            <div class="search-apod-date">
+              <input type="date" id="apod-date">
+              <button class="btn-primary apod-search">Search APOD Photos</button>
+            </div>
+        </div>
         <!-- <div class="epic-container">
           <input type="date" id="epic-search-date">
           <button class="show-epic-photos">Show Epic Photots</button>

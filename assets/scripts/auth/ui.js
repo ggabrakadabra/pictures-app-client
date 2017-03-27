@@ -1,6 +1,6 @@
 'use strict'
 
-// const events = require('../crud/events.js')
+const events = require('../api/events.js')
 // const api = require('./api')
 
 const success = (data) => {
@@ -19,6 +19,8 @@ const changePasswordFailure = function () {
   $('.message').text('Invalid Password!')
   $('#change-password')[0].reset()
 }
+
+events.neoDailyFeed()
 
 $('#my-pictures-link').hide()
 $('#apod-link').hide()

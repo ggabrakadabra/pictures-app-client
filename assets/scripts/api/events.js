@@ -98,13 +98,13 @@ const searchSoundsApi = function () {
   })
 }
 
-const neoDailyFeed = function() {
+const neoDailyFeed = function () {
   const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
   const neoUrl = 'https://api.nasa.gov/neo/rest/v1/feed/today?'
   $.ajax({
     url: `${neoUrl}detailed=true&api_key=${apiKey}`,
     method: 'GET'
-  }).then(function(results) {
+  }).then(function (results) {
     $('.neo-results').empty()
     console.log('neo results', results)
     const neoResults = neoTemplate(results)
@@ -137,31 +137,40 @@ const searchMarsRoverApi = function () {
   })
 }
 
-// const showEarthImagery = function () {
-//   const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
-//   const searchDate = $('#epic-search-date').val()
-//   const earthUrl = 'https://api.nasa.gov/planetary/earth/imagery?'
-//   $.ajax({
-//     url: `${earthUrl}lon=100.75&lat=1.5&date=${searchDate}&cloud_score=True&api_key=${apiKey}`,
-//     method: 'GET'
-//   }).then(function (response) {
-//     console.log('epic response', response)
-//     for (let i = 0; i < response.length; i++) {
-//       const singleSearchResult = epicTemplate(response)
-//       $('.epic-results').append(singleSearchResult)
-//     }
-//   })
-// }
+const searchApod = function () {
+  const apodDate = $('#apod-date').val()
+  const data = {
+    search: {
+      query: apodDate
+    }
+  }
+  const apodUrl = 'http://localhost:4741/search/apod'
+  $.ajax({
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    url: `${apodUrl}`,
+    method: 'POST',
+    data: data
+  }).done(function (results) {
+    console.log('apod', results)
+    $('.apod-results').empty()
+    // for (let i = 0; i < results.photos.length; i++) {
+    const apodResult = apodTemplate(results)
+    $('.apod-results').append(apodResult)
+  })
+}
 
 const addHandlers = () => {
-  // $('#saved-pictures').on('click', onShowPictures);
   $('.patents-search').on('click', searchPatentsApi)
   $('.sounds-search').on('click', searchSoundsApi)
-  $('#apod-link').on('click', neoDailyFeed)
+  // $('#apod-link').on('click', neoDailyFeed)
   $('.search-by-date').on('click', searchMarsRoverApi)
   $('#apod-link').on('click', showApod)
+  $('.apod-search').on('click', searchApod)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  neoDailyFeed
 }

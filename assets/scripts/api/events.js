@@ -64,6 +64,7 @@ const searchPatentsApi = function () {
     method: 'POST',
     data: data
   }).done(function (results) {
+    $('.single-search-result-patents').empty()
     console.log('patent data', results)
     for (let i = 0; i < results.results.length; i++) {
       const singleSearchResult = patentsTemplate(results.results[i])
@@ -88,6 +89,7 @@ const searchSoundsApi = function () {
     method: 'POST',
     data: data
   }).done(function (results) {
+    $('.single-search-result-sounds').empty()
     console.log('sound results', results)
     for (let i = 0; i < results.results.length; i++) {
       const singleSearchResult = soundsTemplate(results.results[i])
@@ -110,14 +112,22 @@ const neoDailyFeed = function() {
   })
 }
 
-const searchMarsRoverApi = function() {
+const searchMarsRoverApi = function () {
   const earthDate = $('#earth-date').val()
-  const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
-  const marsUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?'
+  const data = {
+    search: {
+      query: earthDate
+    }
+  }
+  const marsUrl = 'http://localhost:4741/search/mars'
   $.ajax({
-    url: `${marsUrl}earth_date=${earthDate}&api_key=${apiKey}`,
-    method: 'GET'
-  }).then(function(results) {
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    url: `${marsUrl}`,
+    method: 'POST',
+    data: data
+  }).done(function (results) {
     console.log('mars', results)
     $('.mars-search-results').empty()
     for (let i = 0; i < results.photos.length; i++) {

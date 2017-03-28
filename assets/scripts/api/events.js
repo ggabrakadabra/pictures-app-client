@@ -78,11 +78,11 @@ const searchPatentsApi = function () {
     method: 'POST',
     data: data
   }).done(function (results) {
-    $('.single-search-result-patents').empty()
+    $('.search-results').empty()
     console.log('patent data', results)
     for (let i = 0; i < results.results.length; i++) {
       const singleSearchResult = patentsTemplate(results.results[i])
-      $('.single-search-result-patents').append(singleSearchResult)
+      $('.search-results').append(singleSearchResult)
     }
   })
 }
@@ -103,11 +103,11 @@ const searchSoundsApi = function () {
     method: 'POST',
     data: data
   }).done(function (results) {
-    $('.single-search-result-sounds').empty()
+    $('.search-results').empty()
     console.log('sound results', results)
     for (let i = 0; i < results.results.length; i++) {
       const singleSearchResult = soundsTemplate(results.results[i])
-      $('.single-search-result-sounds').append(singleSearchResult)
+      $('.search-results').append(singleSearchResult)
     }
   })
 }
@@ -143,10 +143,10 @@ const searchMarsRoverApi = function () {
     data: data
   }).done(function (results) {
     console.log('mars', results)
-    $('.mars-search-results').empty()
+    $('.search-results').empty()
     for (let i = 0; i < results.photos.length; i++) {
       const singleSearchResult = marsTemplate(results.photos[i])
-      $('.mars-search-results').append(singleSearchResult)
+      $('.search-results').append(singleSearchResult)
     }
   })
 }

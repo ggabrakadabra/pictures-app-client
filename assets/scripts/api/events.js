@@ -28,6 +28,7 @@ const showApod = function () {
       const data = getFormFields(event.target)
       console.log('favortie data is', data)
       api.createPictures(data)
+      // api.addToFavoritesList(data)
           .then(api.addToFavoritesList)
     })
     // $('.apod-results').on('click', function (event) {

@@ -128,23 +128,23 @@ const onShowFavorites = function (event) {
     .fail(ui.fail)
 }
 
-const savePictureToFavorites = function (event) {
-  if (event && event.preventDefault) {
-    event.preventDefault()
-  }
-  const data = getFormFields(event.target)
-  console.log('favortie data is', data)
-  api.createPictures(data)
-  .then((response) => {
-    store.picture = response.picture
-    return store.picture
-  })
-    // .then(ui.savedPicture)
-    // .fail(ui.fail)
-    // // .then(api.addToFavoritesList)
-    // .then(ui.addPictureToFavorites)
-    // .fail(ui.addFavoriteFail)
-}
+// const savePictureToFavorites = function (event) {
+//   if (event && event.preventDefault) {
+//     event.preventDefault()
+//   }
+//   const data = getFormFields(event.target)
+//   console.log('favortie data is', data)
+//   api.createPictures(data)
+//   .then((response) => {
+//     store.picture = response.picture
+//     return store.picture
+//   })
+//     // .then(ui.savedPicture)
+//     // .fail(ui.fail)
+//     // // .then(api.addToFavoritesList)
+//     // .then(ui.addPictureToFavorites)
+//     // .fail(ui.addFavoriteFail)
+// }
 
 const showMyPictures = function () {
   $('#my-pictures-link').addClass('active')
@@ -257,7 +257,7 @@ const showSearchBar = function () {
 
 const addHandlers = () => {
   $('#saved-pictures').on('click', onShowPictures)
-  $('.add-picture').on('submit', savePictureToFavorites)
+  // $('.add-picture').on('submit', savePictureToFavorites)
   $('#my-pictures-link').on('click', showMyPictures)
   $('#show-favorites').on('click', onShowFavorites)
   // $('#saved-pictures').on('click', onShowPictures);

@@ -70,7 +70,7 @@ const showFavorites = function () {
 const addToFavoritesList = function (data) {
   const favoriteParams = {
     'favorite': {
-      'picture_id': data.picture.id.toString()
+      'picture_id': data.picture.id
     }
   }
   console.log('api data', data)

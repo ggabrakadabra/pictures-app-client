@@ -4,6 +4,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+.apod-photo {
+  width: 95%;
+  height: 95%;
+}
+
 .search-container {
   display: flex;
 }

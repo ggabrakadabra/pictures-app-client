@@ -27,41 +27,15 @@ const showApod = function () {
         event.preventDefault()
       }
       const data = getFormFields(event.target)
-      console.log('favortie data is', data)
+      console.log('favortie picture data is', data)
       api.createPictures(data)
-      // api.addToFavoritesList(data)
           .then(api.addToFavoritesList)
           .then(api.addToFavoritesList)
           .then(ui.addPictureToFavorites)
           .fail(ui.addFavoriteFail)
     })
-    // $('.apod-results').on('click', function (event) {
-    //   event.preventDefault()
-    //   console.log('event', event.currentTarget)
-      // const data = {
-      //   picture: {
-      //     title: event.currentTarget.children[0],
-      //     description: event.currentTarget.children[1],
-      //     photo: event.currentTarget.children[1].children[0]
-      //   }
-      // }
-      //   api.createPictures(data)
-      //     .then(ui.savedPicture)
-      //     .fail(ui.fail)
-      // })
-      // console.log('data is', data)
-    // })
   })
 }
-// $('.apod-results').on('click', function (event, data) {
-//   event.preventDefault()
-//   api.createPictures(data)
-//     .then(ui.savedPicture)
-//     .fail(ui.fail)
-//     .then(api.addToFavoritesList)
-//     .then(ui.addPictureToFavorites)
-//     .fail(ui.addFavoriteFail)
-// })
 
 const searchPatentsApi = function () {
   const searchText = $('#search-box').val()
@@ -173,6 +147,18 @@ const searchApod = function () {
     // for (let i = 0; i < results.photos.length; i++) {
     const apodResult = apodTemplate(results)
     $('.apod-results').append(apodResult)
+    $('.add-picture').on('submit', function (event) {
+      if (event && event.preventDefault) {
+        event.preventDefault()
+      }
+      const data = getFormFields(event.target)
+      console.log('favortie picture data is', data)
+      api.createPictures(data)
+          .then(api.addToFavoritesList)
+          .then(api.addToFavoritesList)
+          .then(ui.addPictureToFavorites)
+          .fail(ui.addFavoriteFail)
+    })
   })
 }
 

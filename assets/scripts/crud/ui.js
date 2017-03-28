@@ -1,15 +1,15 @@
-'use strict';
+'use strict'
 
 // const events = require('./events');
 
 const success = (data) => {
   if (data) {
   }
-};
+}
 
 const failure = (data) => {
-  $('.message').text('Error!!!');
-};
+  $('.message').text('Error!!!')
+}
 
 // const clearComments = () => {
 //   $('.comments-list').empty();
@@ -50,7 +50,6 @@ const deleteFavoriteSuccess = function () {
   window.currentTitle = null
   window.currentDescription = null
   $('.comments-list').hide()
-
 }
 
 const deleteFavoriteFailure = function () {

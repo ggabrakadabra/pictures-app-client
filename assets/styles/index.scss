@@ -4,6 +4,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+.neo-result {
+  font-size: 50px;
+  text-align: center;
+}
+
 .apod-photo {
   width: 95%;
   height: 95%;
@@ -63,10 +68,10 @@ body {
   text-align: center;
 }
 
-.search-box {
-  text-align: center;
-  width: 100%;
-}
+// .search-box {
+//   text-align: center;
+//   width: 80%;
+// }
 
 .single-search-result {
   // border: 1px solid #bc509c;
@@ -220,7 +225,7 @@ body {
 
 #search-box {
   padding: .5em;
-  width: 275px;
+  width: 80%;
 }
 
 #create-comment {

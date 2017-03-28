@@ -36,7 +36,7 @@ const onShowPictures = function (event) {
 const showPictureAndComments = function () {
   api.showComments().then(function (response) {
     $('.comments-list').empty()
-    $('.comments-list').append(selectedPictureTemplate({ title: window.currentTitle, id: window.pictureId, date: window.date, explanation: window.currentDescription, photo: window.photo }))
+    $('.comments-list').append(selectedPictureTemplate({ title: window.currentTitle, id: window.pictureId, explanation: window.currentDescription, date: window.currentDate, photo: window.photo }))
     for (let i = 0; i < response.comments.length; i++) {
       const comment = showCommentTemplate(response.comments[i])
       const commentPictureId = response.comments[i].picture.id
@@ -94,7 +94,7 @@ const selectPicture = function (event) {
   window.pictureId = $(event.currentTarget).attr('picture-id')
   window.photo = $(event.currentTarget).attr('picture-photo')
   window.currentTitle = $(event.currentTarget).attr('picture-title')
-  window.date = $(event.currentTarget).attr('picture-date')
+  window.currentDate = $(event.currentTarget).attr('picture-date')
   window.currentDescription = $(event.currentTarget).attr('picture-description')
   $('.comments-list').empty()
   showPictureAndComments(window.pictureId)

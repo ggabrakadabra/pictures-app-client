@@ -7,6 +7,7 @@ const marsTemplate = require('../templates/marsrover.handlebars')
 const soundsTemplate = require('../templates/sounds.handlebars')
 const patentsTemplate = require('../templates/patents.handlebars')
 const apodTemplate = require('../templates/apod.handlebars')
+const apodTodayTemplate = require('../templates/apodtoday.handlebars')
 const neoTemplate = require('../templates/neo.handlebars')
 
 const showApod = function () {
@@ -20,7 +21,7 @@ const showApod = function () {
   }).done(function (results) {
     console.log('apod', results)
     $('.apod-results').empty()
-    const apodResult = apodTemplate(results)
+    const apodResult = apodTodayTemplate(results)
     $('.apod-results').append(apodResult)
     $('.add-picture').on('submit', function (event) {
       if (event && event.preventDefault) {
@@ -29,7 +30,6 @@ const showApod = function () {
       const data = getFormFields(event.target)
       console.log('favortie picture data is', data)
       api.createPictures(data)
-          .then(api.addToFavoritesList)
           .then(api.addToFavoritesList)
           .then(ui.addPictureToFavorites)
           .fail(ui.addFavoriteFail)
@@ -154,7 +154,6 @@ const searchApod = function () {
       const data = getFormFields(event.target)
       console.log('favortie picture data is', data)
       api.createPictures(data)
-          .then(api.addToFavoritesList)
           .then(api.addToFavoritesList)
           .then(ui.addPictureToFavorites)
           .fail(ui.addFavoriteFail)

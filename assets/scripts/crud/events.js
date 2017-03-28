@@ -2,6 +2,7 @@
 
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const showCommentTemplate = require('../templates/comment.handlebars')
 const showFavoriteTemplate = require('../templates/favorite.handlebars')
@@ -128,21 +129,21 @@ const onShowFavorites = function (event) {
 }
 
 const savePictureToFavorites = function (event) {
-  event.preventDefault()
-  const data = {
-    picture: {
-      title: event.currentTarget.title,
-      description: event.currentTarget.explanation,
-      photo: event.currentTarget.hdurl
-    }
+  if (event && event.preventDefault) {
+    event.preventDefault()
   }
+  const data = getFormFields(event.target)
+  console.log('favortie data is', data)
   api.createPictures(data)
-  console.log('cata is', data)
-    .then(ui.savedPicture)
-    .fail(ui.fail)
-    .then(api.addToFavoritesList)
-    .then(ui.addPictureToFavorites)
-    .fail(ui.addFavoriteFail)
+  .then((response) => {
+    store.picture = response.picture
+    return store.picture
+  })
+    // .then(ui.savedPicture)
+    // .fail(ui.fail)
+    // // .then(api.addToFavoritesList)
+    // .then(ui.addPictureToFavorites)
+    // .fail(ui.addFavoriteFail)
 }
 
 const showMyPictures = function () {
@@ -256,7 +257,7 @@ const showSearchBar = function () {
 
 const addHandlers = () => {
   $('#saved-pictures').on('click', onShowPictures)
-  $('#save-apod').on('submit', savePictureToFavorites)
+  $('.add-picture').on('submit', savePictureToFavorites)
   $('#my-pictures-link').on('click', showMyPictures)
   $('#show-favorites').on('click', onShowFavorites)
   // $('#saved-pictures').on('click', onShowPictures);

@@ -5,6 +5,11 @@
       <h4 class="apod-description"> <h3>Desription:</h3> {{{explanation}}}</h4>
       <h3>Title: {{title}}</h3>
       <h3> Date: {{date}}</h3>
-  </div>
-  <input type="submit" class="btn btn-primary" name="submit" value="Save to Favorites">
+    </div>
+    <form class="add-picture">
+    <fieldset>
+      <input type="text" name="picture[title]" value="{{title}}">
+      <button type="submit" id="save-apod-to-favorites" class="btn btn-primary">Save to Favorites</button>
+    </fieldset>
+  </form>
 </div>

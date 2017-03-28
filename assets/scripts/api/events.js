@@ -1,5 +1,7 @@
 'use strict'
 const store = require('../store')
+const api = require('../crud/api')
+const getFormFields = require('../../../lib/get-form-fields.js')
 const marsTemplate = require('../templates/marsrover.handlebars')
 const soundsTemplate = require('../templates/sounds.handlebars')
 const patentsTemplate = require('../templates/patents.handlebars')
@@ -7,26 +9,37 @@ const apodTemplate = require('../templates/apod.handlebars')
 const neoTemplate = require('../templates/neo.handlebars')
 
 const showApod = function () {
-  const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
-  const apodUrl = 'https://api.nasa.gov/planetary/apod?'
+  const apodUrl = 'http://localhost:4741/search/apod/today'
   $.ajax({
-    url: `${apodUrl}api_key=${apiKey}`,
-    method: 'GET'
-  }).then(function (results) {
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    url: `${apodUrl}`,
+    method: 'POST'
+  }).done(function (results) {
     console.log('apod', results)
     $('.apod-results').empty()
     const apodResult = apodTemplate(results)
     $('.apod-results').append(apodResult)
-    $('.apod-results').on('click', function (event) {
-      event.preventDefault()
-      console.log('event', event.currentTarget)
-      const data = {
-        picture: {
-          title: event.currentTarget.children[0],
-          description: event.currentTarget.children[1],
-          photo: event.currentTarget.children[1].children[0]
-        }
+    $('.add-picture').on('submit', function (event) {
+      if (event && event.preventDefault) {
+        event.preventDefault()
       }
+      const data = getFormFields(event.target)
+      console.log('favortie data is', data)
+      api.createPictures(data)
+          .then(api.addToFavoritesList)
+    })
+    // $('.apod-results').on('click', function (event) {
+    //   event.preventDefault()
+    //   console.log('event', event.currentTarget)
+      // const data = {
+      //   picture: {
+      //     title: event.currentTarget.children[0],
+      //     description: event.currentTarget.children[1],
+      //     photo: event.currentTarget.children[1].children[0]
+      //   }
+      // }
       //   api.createPictures(data)
       //     .then(ui.savedPicture)
       //     .fail(ui.fail)
@@ -34,8 +47,8 @@ const showApod = function () {
       //     .then(ui.addPictureToFavorites)
       //     .fail(ui.addFavoriteFail)
       // })
-      console.log('data is', data)
-    })
+      // console.log('data is', data)
+    // })
   })
 }
 // $('.apod-results').on('click', function (event, data) {

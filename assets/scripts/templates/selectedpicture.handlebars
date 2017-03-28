@@ -1,14 +1,15 @@
 <h1 class="picture-title">{{title}}</h1>
+<div class="picture-description"> <h4 class="favorite-description">Description:</h4> {{explanation}}</div>
+<div class="picture-date"> <h4 class="favorite-date">Date: </h4> {{date}}</div>
 <div class="photo-description-container">
   <img src="{{photo}}" class="picture-photo"></img>
-  <div class="picture-description">{{explantion}}</div>
 </div>
 <h3 class="comments-header">Comments:</h3>
 
 <form id="create-comment">
   <fieldset>
     <input type="text" name="comment[picture_id]" placeholder="Picture ID" value="{{id}}" style="display: none;">
-    <textarea type="text" name="comment[note]" placeholder="Comment" rows="2" cols="60"></textarea>
+    <textarea type="text" pattern=".{1,}" required title="1 character minimum" name="comment[note]" placeholder="Comment" rows="2" cols="60"></textarea>
     <button id="add-comment" type="submit" class="btn btn-primary add-comment-button">Add Comment</button>
   </fieldset>
 </form>

@@ -36,7 +36,7 @@ const onShowPictures = function (event) {
 const showPictureAndComments = function () {
   api.showComments().then(function (response) {
     $('.comments-list').empty()
-    $('.comments-list').append(selectedPictureTemplate({ title: window.currentTitle, id: window.pictureId, description: window.currentDescription, photo: window.photo }))
+    $('.comments-list').append(selectedPictureTemplate({ title: window.currentTitle, id: window.pictureId, date: window.date, explanation: window.currentDescription, photo: window.photo }))
     for (let i = 0; i < response.comments.length; i++) {
       const comment = showCommentTemplate(response.comments[i])
       const commentPictureId = response.comments[i].picture.id
@@ -77,11 +77,14 @@ const showPictureAndComments = function () {
       const authorId = $(event.currentTarget).attr('author-id')
       if (window.loggedInUserId == authorId) {
         $('.change-comment').hide()
+        $('.delete-comment').hide()
         $(event.currentTarget).find('.change-comment').show()
+        $(event.currentTarget).find('.delete-comment').show()
       }
     })
     $('.comment').on('mouseout', function (event) {
       $(event.currentTarget).find('.change-comment').hide()
+      $(event.currentTarget).find('.delete-comment').hide()
     })
   })
 }
@@ -91,6 +94,7 @@ const selectPicture = function (event) {
   window.pictureId = $(event.currentTarget).attr('picture-id')
   window.photo = $(event.currentTarget).attr('picture-photo')
   window.currentTitle = $(event.currentTarget).attr('picture-title')
+  window.date = $(event.currentTarget).attr('picture-date')
   window.currentDescription = $(event.currentTarget).attr('picture-description')
   $('.comments-list').empty()
   showPictureAndComments(window.pictureId)

@@ -1,18 +1,20 @@
 <div class="apod-results">
   <h2>Astronomy Picture of the Day</h2>
     <div class="apod-image-and-description">
-      <h4><h3>Title: </h3>{{title}}</h4>
+      <h4>{{title}}</h4>
+      <h4>{{date}}</h4>
       <img src="{{hdurl}}" class="apod-photo">{{hdurl}}</img>
+      <h5><h4>Copyright:</h4>{{copyright}}</h5>
       <h4 class="apod-description"> <h3>Desription:</h3> {{{explanation}}}</h4>
-      <h4><h3> Date:</h3>{{date}}</h4>
-      <h4><h3>Copyright:</h3>{{copyright}}</h4>
+      <br>
     </div>
+    <br>
     <form class="add-picture">
     <fieldset>
-      <input type="text" name="picture[title]" value="{{title}}">
-      <input type="text" name="picture[date]" value="{{date}}">
-      <input type="text" name="picture[description]" value="{{explanation}}">
-      <input type="text" name="picture[hdurl]" value="{{hdurl}}">
+      <input type="text" name="picture[title]" value="{{title}}" style="display: none;">
+      <input type="text" name="picture[date]" value="{{date}}" style="display: none;">
+      <input type="text" name="picture[explanation]" value="{{explanation}}" style="display: none;">
+      <input type="text" name="picture[hdurl]" value="{{hdurl}}" style="display: none;">
       <button type="submit" id="save-apod-to-favorites" class="btn btn-primary">Save to Favorites</button>
     </fieldset>
   </form>

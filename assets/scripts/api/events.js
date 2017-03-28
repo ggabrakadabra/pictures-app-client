@@ -1,6 +1,7 @@
 'use strict'
 const store = require('../store')
 const api = require('../crud/api')
+const ui = require('../crud/ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const marsTemplate = require('../templates/marsrover.handlebars')
 const soundsTemplate = require('../templates/sounds.handlebars')
@@ -30,6 +31,9 @@ const showApod = function () {
       api.createPictures(data)
       // api.addToFavoritesList(data)
           .then(api.addToFavoritesList)
+          .then(api.addToFavoritesList)
+          .then(ui.addPictureToFavorites)
+          .fail(ui.addFavoriteFail)
     })
     // $('.apod-results').on('click', function (event) {
     //   event.preventDefault()
@@ -44,9 +48,6 @@ const showApod = function () {
       //   api.createPictures(data)
       //     .then(ui.savedPicture)
       //     .fail(ui.fail)
-      //     .then(api.addToFavoritesList)
-      //     .then(ui.addPictureToFavorites)
-      //     .fail(ui.addFavoriteFail)
       // })
       // console.log('data is', data)
     // })

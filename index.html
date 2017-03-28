@@ -10,6 +10,7 @@
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="https://use.fontawesome.com/a614066344.js"></script>
     </head>
     <body class="container-fluid">
       <nav class="navbar navbar-default navbar-fixed-top">
@@ -58,9 +59,9 @@
              <label>
                <input type="text" placeholder="Email" name="credentials[email]">
              </label>
-               <input type="password" placeholder="Password" name="credentials[password]">
+               <input type="password" pattern=".{1,}" required title="1 character minimum" placeholder="Password" name="credentials[password]">
              <label>
-               <input type="password" placeholder="Password Confirmation" name="credentials[password_confirmation]">
+               <input type="password" pattern=".{1,}" required title="1 character minimum" placeholder="Password Confirmation" name="credentials[password_confirmation]">
              </label>
              <label>
              <input type="submit" class="btn btn-primary" name="submit" value="Sign up!">
@@ -70,12 +71,12 @@
          <form id="sign-in">
            <fieldset>
              <label>
-               <input type="text" placeholder="Email" name="credentials[email]">
+               <input type="text" pattern=".{1,}" required title="1 character minimum" placeholder="Email" name="credentials[email]">
              </label>
              <label>
-               <input type="password" placeholder="Password" name="credentials[password]">
+               <input type="password" pattern=".{1,}" required title="1 character minimum" placeholder="Password" name="credentials[password]">
              </label>
-             <input type="submit" class="btn btn-primary" name="submit" value="Sign in!">
+             <input type="submit" pattern=".{1,}" required title="1 character minimum" class="btn btn-primary" name="submit" value="Sign in!">
            </fieldset>
          </form>
        </div>
@@ -104,25 +105,23 @@
       <div class="search-container" style="display: none;">
         <div class="search-parameters">
           <div class="search-bar">
-            <h4>Search Sounds</h4>
+            <h4>Search Patents</h4>
             <input type="text" id="search-box" placeholder="Search by Keyword">
-            <button class="btn-primary sounds-search">Search Sounds</button>
             <button class="btn-primary patents-search">Search Patents</button>
           </div>
 
-          <div class="search-by-date">
+          <h4>Browse Sounds</h4>
+          <button class="btn-primary sounds-search">Sounds</button>
+          <br>
             <div class="search-mars">
               <h4>Search Mars Rover photos by date</h4>
-              <p>Search through photos by date</p>
                 <div class="search-mars-date">
                   <input type="date" id="earth-date">
                   <button class="btn-primary search-by-date">Search Mars Rover Photos</button>
                 </div>
             </div>
-          </div>
         </div>
         <div class="search-results">
-          <div class="mars-search-results"></div>
         </div>
       </div>
        <!-- this will be the div for the search bar -->

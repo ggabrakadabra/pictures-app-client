@@ -12,6 +12,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .search-result-photo-mars {
   width: 99%;
   height: 99%;
+
 }
 
 .picture-photo {
@@ -24,11 +25,12 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .search-parameters {
-  flex-basis: 30%;
+  flex-basis: 20%;
 }
 
 .search-results {
-  flex-basis: 70%;
+  flex-basis: 80%;
+
 }
 
 body {
@@ -61,7 +63,7 @@ body {
   text-align: center;
 }
 
-.search-bar {
+.search-box {
   text-align: center;
   width: 100%;
 }
@@ -94,6 +96,21 @@ body {
   color: #bc509c;
 }
 
+.favorite-description {
+  color: #bc509c;
+}
+
+.favorite-date {
+  color: #bc509c;
+}
+
+.single-search-result-patents, .single-search-result-sounds, .single-search-result-mars {
+  background-color: #fce2f4;
+  margin: 2em;
+  padding: 1em;
+  border-radius: 11px;
+}
+
 .picture-description {
   flex-grow: 1;
   padding: 2em;
@@ -119,8 +136,6 @@ body {
   width: 22px;
   display: none;
   font-weight: bold;
-  border-radius: 11px;
-  border: 2px solid black;
   text-align: center;
   color: black;
 }
@@ -135,8 +150,6 @@ body {
   width: 22px;
   display: none;
   font-weight: bold;
-  border-radius: 11px;
-  border: 2px solid black;
   text-align: center;
   color: black;
 }
@@ -256,10 +269,6 @@ body {
 }
 
 button {
-  font-weight: bold;
-  border: 3px solid #5b5b5b;
-  color: #5b5b5b;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
 }
 

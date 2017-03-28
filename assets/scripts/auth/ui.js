@@ -24,6 +24,7 @@ events.neoDailyFeed()
 
 $('#my-pictures-link').hide()
 $('#apod-link').hide()
+$('.apod-container').hide()
 $('#change-password-link').hide()
 $('#sign-out-link').hide()
 $('#comments-link').hide()

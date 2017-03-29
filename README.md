@@ -4,8 +4,17 @@
 
 **Back End Repo:** <https://github.com/ggwilliams/rails-pictures-api>
 
+**Deployed:** <https://salty-ravine-27099.herokuapp.com/>
+
 ## Overview
 This web application allows users to view APOD and also save their favorite photos and view them later and also comment on them. There are also NEO facts displayed in the search page and users can search through Mars rover photos, NASA patents, and NASA sounds. Users can visit this page if they want to see ore than just APOD. If they want to search Mars rover photos by date they can easily do that. If they want to search through NASA patents, all they need to do is enter a keywork into the search. Or if they want to browse they space sounds, it only takes a click of a button.
+
+## Technologies Used
+* JavaScript
+* jQuery
+* Handlebars
+* 3rd Party API (NASA)
+* Ruby on Rails
 
 ## About
 To start the front end, I began with testing that the user sign in, sign up, and etc was working properly with the back end. After setting the required files in the appropriate folders, the sign in, sign up and sign out worked properly.
@@ -153,7 +162,9 @@ const searchApod = function () {
   })
 }
 ```
-Before deploying, I had to change this so that my config file was used.
+
+Before deploying, I had to change the url path so that my config file was used. So each route points to the correct route in the backend. Since the user must be signed in before any of the functions get called, each function checks for the user authorization.
+
 ```
 $.ajax({
   headers: {

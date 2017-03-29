@@ -12,7 +12,12 @@ body {
   color: #bc509c;
 }
 
-.fa-trash-o, .fa-pencil, .fa-globe, .fa-space-shuttle {
+.fa-pencil, .fa-globe, .fa-space-shuttle {
+  font-size: 20px;
+}
+
+.fa-trash-o {
+  color: #2ECAFF;
   font-size: 20px;
 }
 
@@ -30,8 +35,14 @@ body {
   margin: auto;
 }
 
+.favorite-description {
+  color: #bc509c;
+  font-size: 20px;
+}
+
+
 .picture-favorite:hover {
-  background-color: #fce2f4;
+  border: 5px solid #fce2f4;
 }
 
 .apod-results {
@@ -114,8 +125,9 @@ body {
 
 .small-comment-header {
   color: #bc509c;
-  font-weight: bold;
+  font-size: 19px;
 }
+
 
 .comments-header {
   color: #bc509c;
@@ -149,9 +161,6 @@ body {
   color: #bc509c;
 }
 
-.favorite-description {
-  color: #bc509c;
-}
 
 .favorite-date {
   color: #bc509c;
@@ -167,6 +176,8 @@ body {
 .picture-description {
   flex-grow: 1;
   padding: 2em;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .change-comment {
@@ -196,8 +207,10 @@ body {
 
 .delete-comment {
   float: right;
-  height: 22px;
-  width: 22px;
+  height: 25px;
+  width: 25px;
+  font-size: 30px;
+  padding-right: 2em;
   display: none;
   font-weight: bold;
   text-align: center;
@@ -217,6 +230,10 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #fce2f4;
   color: #2ECAFF;
+}
+
+.user-email {
+  font-size: 14px;
 }
 
 .picture-favorite.selected {
@@ -256,7 +273,7 @@ body {
 
 .picture-favorite {
   padding: 1em;
-  font-weight: bold;
+  font-size: 15px
 }
 
 #search-box {
@@ -327,11 +344,6 @@ label {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
   color: #5b5b5b;
-}
-
-.single-search-result:hover {
-  // color: #2ECAFF;
-  cursor: pointer;
 }
 
 #sign-out {

@@ -1,6 +1,6 @@
 <div class="comment" author-id="{{user.id}}">
   <div class="delete-comment" comment-id="{{id}}"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-  <div><h5 class="small-comment-header">Comment:</h5>{{note}}</div>
+  <div class="small-comment-header">{{note}}</div>
   <form class="change-comment">
     <fieldset>
       <input type="number" name="comment[id]" placeholder="Comment ID" value="{{id}}" style="display: none;">
@@ -8,6 +8,7 @@
       <button id="update-comment" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
     </fieldset>
   </form>
-  <div>Username: {{user.email}}</div>
+  <div class="user-email">{{user.email}}
+  </div>
   <br>
 </div>

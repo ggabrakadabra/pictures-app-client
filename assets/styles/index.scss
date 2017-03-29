@@ -4,6 +4,14 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+.fa-trash-o, .fa-pencil, .fa-globe, .fa-space-shuttle {
+  font-size: 20px;
+}
+
+.panel-default {
+  width: 50%;
+}
+
 .neo-result {
   font-size: 50px;
   text-align: center;

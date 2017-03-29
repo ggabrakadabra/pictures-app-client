@@ -9,6 +9,7 @@ const patentsTemplate = require('../templates/patents.handlebars')
 const apodTemplate = require('../templates/apod.handlebars')
 const apodTodayTemplate = require('../templates/apodtoday.handlebars')
 const neoTemplate = require('../templates/neo.handlebars')
+const neoStatsTemplate = require('../templates/neostats.handlebars')
 
 const showApod = function () {
   const apodUrl = 'http://localhost:4741/search/apod/today'
@@ -88,16 +89,34 @@ const searchSoundsApi = function () {
 }
 
 const neoDailyFeed = function () {
-  const apiKey = 'T9Rfu2Fl6lIsh6xAlOGq3fKH9q29wtvjvjy1d8la'
-  const neoUrl = 'https://api.nasa.gov/neo/rest/v1/feed/today?'
+  const neoUrl = 'http://localhost:4741/search/neo/today'
   $.ajax({
-    url: `${neoUrl}detailed=true&api_key=${apiKey}`,
-    method: 'GET'
-  }).then(function (results) {
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    url: `${neoUrl}`,
+    method: 'POST'
+  }).done(function (results) {
     $('.neo-results').empty()
     console.log('neo results', results)
     const neoResults = neoTemplate(results)
-    $('.neo-results').append(neoResults)
+    $('.search-results').append(neoResults)
+  })
+}
+
+const neoStats = function () {
+  const neoUrl = 'http://localhost:4741/search/stats'
+  $.ajax({
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    url: `${neoUrl}`,
+    method: 'POST'
+  }).done(function (results) {
+    $('.neo-results').empty()
+    console.log('neo results', results)
+    const neoResults = neoStatsTemplate(results)
+    $('.search-results').append(neoResults)
   })
 }
 
@@ -172,5 +191,6 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  neoDailyFeed
+  neoDailyFeed,
+  neoStats
 }

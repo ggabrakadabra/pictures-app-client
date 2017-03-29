@@ -20,8 +20,6 @@ const changePasswordFailure = function () {
   $('#change-password')[0].reset()
 }
 
-events.neoDailyFeed()
-
 $('#my-pictures-link').hide()
 $('#apod-link').hide()
 $('.apod-container').hide()
@@ -54,6 +52,9 @@ const signInSuccess = function () {
   $('.favorite-container').show()
   $('.picture-container').show()
   $('.api-apod-container').show()
+
+  events.neoDailyFeed()
+  events.neoStats()
 }
 
 const signUpSuccess = function () {

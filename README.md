@@ -5,7 +5,7 @@
 **Back End Repo:** <https://github.com/ggwilliams/rails-pictures-api>
 
 ## Overview
-This web application allows users to view APOD and also save their favorite photos and view them later and also comment on them.
+This web application allows users to view APOD and also save their favorite photos and view them later and also comment on them. There are also NEO facts displayed in the search page and users can search through Mars rover photos, NASA patents, and NASA sounds. Users can visit this page if they want to see ore than just APOD. If they want to search Mars rover photos by date they can easily do that. If they want to search through NASA patents, all they need to do is enter a keywork into the search. Or if they want to browse they space sounds, it only takes a click of a button.
 
 ## About
 To start the front end, I began with testing that the user sign in, sign up, and etc was working properly with the back end. After setting the required files in the appropriate folders, the sign in, sign up and sign out worked properly.
@@ -30,6 +30,7 @@ const neoDailyFeed = function () {
 }
 ```
 This function displays the number of near earth objects for the day on the homepage.
+I also have another function that shows the total of near earth objects.
 
 I wanted to use more of the NASA apis but some were not relevant to this project.
 
@@ -43,6 +44,11 @@ Wireframe:
 
 ## User Stories
 * As a user, I want to view the Astronomy Picture of the Day
+* As a user, I want to be able to search through NASA patents
+* As a user, I want to be able to search through NASA sounds
+* As a user, I want to view my favorites by date and title.
+* As a user, I want to search through APOD by date.
+* As a user, I want to be able to search through NASA Mars rover photos
 * As a user, I want to add a picture to my favorites list
 * As a user, I want to view my favorites as a list of the dates the picture was posted
 * As a user, I want to delete favorites off of my list
@@ -110,6 +116,7 @@ This is the corresponding handlebars file,
 ```
 
 
+During testing, I had the url set as a constant in each function. This was easier for me to keep track of my routes and what I wasa doing with each one.
 ```
 const searchApod = function () {
   const apodDate = $('#apod-date').val()
@@ -146,3 +153,15 @@ const searchApod = function () {
   })
 }
 ```
+Before deploying, I had to change this so that my config file was used.
+```
+$.ajax({
+  headers: {
+    Authorization: `Token token=${store.user.token}`
+  },
+  url: config.apiOrigin + '/search/apod',
+  method: 'POST',
+  data: data
+}).done(function (results) {
+```
+Now, the function will call the config file and grab the url from there.

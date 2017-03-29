@@ -30,6 +30,10 @@ body {
   margin: auto;
 }
 
+.picture-favorite:hover {
+  background-color: #fce2f4;
+}
+
 .apod-results {
   text-align: center;
 }
@@ -175,6 +179,7 @@ body {
 
 .change-comment {
   display: none;
+  text-align: center;
 }
 
 .comment:hover .delete-comment {
@@ -195,10 +200,6 @@ body {
   font-weight: bold;
   text-align: center;
   color: black;
-}
-
-.change-comment {
-  text-align: center;
 }
 
 .delete-comment {
@@ -306,15 +307,8 @@ body {
   overflow: scroll;
   height: auto;
   margin: auto;
-  color: #62B750;
   padding: 2% 8%;
 }
-
-// h2 {
-//   color: #5b5b5b;
-//   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-//   text-align: center;
-// }
 
 input[placeholder] {
   border: 3px solid #2ECAFF;
@@ -331,21 +325,17 @@ button {
 }
 
 button:hover {
-  color: #2ECAFF;
   cursor: pointer;
 }
 
 input {
-  // font-weight: bold;
   border: 3px solid #5b5b5b;
-  // display: inline-block;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
   color: #5b5b5b;
 }
 
 input:hover {
-  color: #2ECAFF;
   cursor: pointer;
 }
 
@@ -358,61 +348,12 @@ legend {
   color: #5b5b5b;
 }
 
-// #pictures-results {
-//   margin-top: 5%;
-//   margin-bottom: 5%;
-//   font-weight: bold;
-//   height: 200px;
-//   overflow: scroll;
-//   font-family: fantasy;
-//   text-align: center;
-//   color: #62B750;
-//   width: 80% inherit;
-// }
-
-// .comment-results {
-//   margin-top: 5%;
-//   margin-bottom: 5%;
-//   font-weight: bold;
-//   height: 200px;
-//   overflow: scroll;
-//   font-family: fantasy;
-//   text-align: center;
-//   color: #62B750;
-//   width: 80% inherit;
-// }
-
-// .favorite-results {
-//   margin-top: 5%;
-//   margin-bottom: 5%;
-//   font-weight: bold;
-//   height: 200px;
-//   overflow: scroll;
-//   font-family: fantasy;
-//   text-align: center;
-//   color: #62B750;
-//   width: 80% inherit;
-// }
-
 label {
-  // display: inline-block;
   font-weight: bold;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
   color: #5b5b5b;
 }
-
-// h4 {
-//   font-weight: bold;
-//   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-//   text-align: center;
-//   color: #5b5b5b;
-// }
-//
-// h4:hover {
-//   color: #2ECAFF;
-//   cursor: pointer;
-// }
 
 .single-search-result {
   font-weight: bold;
@@ -422,7 +363,7 @@ label {
 }
 
 .single-search-result:hover {
-  color: #2ECAFF;
+  // color: #2ECAFF;
   cursor: pointer;
 }
 
@@ -440,7 +381,3 @@ label {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
 }
-
-// .search-results {
-//   float: inherit;
-// }

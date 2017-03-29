@@ -9,16 +9,12 @@ body {
 }
 
 .apod-results, .search-apod {
-  color: #fce2f4;
+  color: #bc509c;
 }
 
-// .fa-trash-o, .fa-pencil, .fa-globe, .fa-space-shuttle {
-//   font-size: 20px;
-// }
-
-// .panel-default {
-//   width: 50%;
-// }
+.fa-trash-o, .fa-pencil, .fa-globe, .fa-space-shuttle {
+  font-size: 20px;
+}
 
 .panel-default > .panel-heading {
   background-color: #fce2f4;
@@ -74,6 +70,14 @@ body {
   background-color: #fce2f4;
 }
 
+.navbar-default .navbar-brand {
+    color: #bc509c;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #bc509c;
+    background-color: transparent;
+}
 
 .favorites-container, .photo-description-container, .search-result-image-and-description {
   display: flex;

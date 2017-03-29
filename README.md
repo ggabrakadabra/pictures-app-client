@@ -108,3 +108,41 @@ This is the corresponding handlebars file,
   </form>
 </div>
 ```
+
+
+```
+const searchApod = function () {
+  const apodDate = $('#apod-date').val()
+  const data = {
+    search: {
+      query: apodDate
+    }
+  }
+  const apodUrl = 'http://localhost:4741/search/apod'
+  $.ajax({
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    url: `${apodUrl}`,
+    method: 'POST',
+    data: data
+  }).done(function (results) {
+    console.log('apod', results)
+    $('.apod-results').empty()
+    // for (let i = 0; i < results.photos.length; i++) {
+    const apodResult = apodTemplate(results)
+    $('.apod-results').append(apodResult)
+    $('.add-picture').on('submit', function (event) {
+      if (event && event.preventDefault) {
+        event.preventDefault()
+      }
+      const data = getFormFields(event.target)
+      console.log('favortie picture data is', data)
+      api.createPictures(data)
+          .then(api.addToFavoritesList)
+          .then(ui.addPictureToFavorites)
+          .fail(ui.addFavoriteFail)
+    })
+  })
+}
+```

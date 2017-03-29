@@ -2,6 +2,7 @@
 const store = require('../store')
 const api = require('../crud/api')
 const ui = require('../crud/ui')
+const config = require('../config')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const marsTemplate = require('../templates/marsrover.handlebars')
 const soundsTemplate = require('../templates/sounds.handlebars')
@@ -12,12 +13,11 @@ const neoTemplate = require('../templates/neo.handlebars')
 const neoStatsTemplate = require('../templates/neostats.handlebars')
 
 const showApod = function () {
-  const apodUrl = 'http://localhost:4741/search/apod/today'
   $.ajax({
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    url: `${apodUrl}`,
+    url: config.apiOrigin + '/search/apod/today',
     method: 'POST'
   }).done(function (results) {
     console.log('apod', results)
@@ -45,12 +45,11 @@ const searchPatentsApi = function () {
       query: searchText
     }
   }
-  const patentUrl = 'http://localhost:4741/search/patents'
   $.ajax({
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    url: `${patentUrl}`,
+    url: config.apiOrigin + '/search/patents',
     method: 'POST',
     data: data
   }).done(function (results) {
@@ -70,12 +69,11 @@ const searchSoundsApi = function () {
       query: searchText
     }
   }
-  const soundUrl = 'http://localhost:4741/search/sounds'
   $.ajax({
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    url: `${soundUrl}`,
+    url: config.apiOrigin + '/search/sounds',
     method: 'POST',
     data: data
   }).done(function (results) {
@@ -89,12 +87,11 @@ const searchSoundsApi = function () {
 }
 
 const neoDailyFeed = function () {
-  const neoUrl = 'http://localhost:4741/search/neo/today'
   $.ajax({
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    url: `${neoUrl}`,
+    url: config.apiOrigin + '/search/neo/today',
     method: 'POST'
   }).done(function (results) {
     $('.neo-results').empty()
@@ -105,12 +102,11 @@ const neoDailyFeed = function () {
 }
 
 const neoStats = function () {
-  const neoUrl = 'http://localhost:4741/search/stats'
   $.ajax({
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    url: `${neoUrl}`,
+    url: config.apiOrigin + '/search/stats',
     method: 'POST'
   }).done(function (results) {
     $('.neo-results').empty()
@@ -127,12 +123,11 @@ const searchMarsRoverApi = function () {
       query: earthDate
     }
   }
-  const marsUrl = 'http://localhost:4741/search/mars'
   $.ajax({
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    url: `${marsUrl}`,
+    url: config.apiOrigin + '/search/mars',
     method: 'POST',
     data: data
   }).done(function (results) {
@@ -152,12 +147,11 @@ const searchApod = function () {
       query: apodDate
     }
   }
-  const apodUrl = 'http://localhost:4741/search/apod'
   $.ajax({
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    url: `${apodUrl}`,
+    url: config.apiOrigin + '/search/apod',
     method: 'POST',
     data: data
   }).done(function (results) {

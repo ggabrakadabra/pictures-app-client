@@ -59,9 +59,24 @@ body {
   padding-top: 80px;
 }
 
-// .navbar {
-//   color:#823C6D;
-// }
+.navbar-default {
+    // background-color: black;
+    // background: url(../img/nav.jpg) no-repeat center center;
+    border-color: black;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: white;
+    background-color: transparent;
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    background: url(../img/nav.jpg) center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -70,13 +85,17 @@ body {
   background-color: #fce2f4;
 }
 
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
 .navbar-default .navbar-brand {
-    color: #bc509c;
+    color: white;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #bc509c;
-    background-color: transparent;
+    background-color: #fce2f4;
 }
 
 .favorites-container, .photo-description-container, .search-result-image-and-description {
@@ -406,7 +425,7 @@ label {
 
 .message {
   font-size: 15px;
-  color: #bc509c;
+  color: white;
   float: right;
   margin-top: 10px;
   margin-right: 10px;

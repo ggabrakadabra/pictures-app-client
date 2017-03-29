@@ -100,7 +100,7 @@ const neoDailyFeed = function () {
     $('.neo-results').empty()
     console.log('neo results', results)
     const neoResults = neoTemplate(results)
-    $('.search-results').append(neoResults)
+    $('.neo').append(neoResults)
   })
 }
 
@@ -116,7 +116,7 @@ const neoStats = function () {
     $('.neo-results').empty()
     console.log('neo results', results)
     const neoResults = neoStatsTemplate(results)
-    $('.search-results').append(neoResults)
+    $('.neo-stats').append(neoResults)
   })
 }
 

@@ -8,8 +8,13 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   font-size: 20px;
 }
 
-.panel-default {
-  width: 50%;
+// .panel-default {
+//   width: 50%;
+// }
+
+.panel-default > .panel-heading {
+  background-color: #fce2f4;
+  border-color: #fce2f4;
 }
 
 .neo-result {
@@ -38,11 +43,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .search-parameters {
-  flex-basis: 20%;
+  flex-basis: 25%;
 }
 
 .search-results {
-  flex-basis: 80%;
+  flex-basis: 75%;
 
 }
 

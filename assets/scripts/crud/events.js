@@ -8,27 +8,12 @@ const showCommentTemplate = require('../templates/comment.handlebars')
 const showFavoriteTemplate = require('../templates/favorite.handlebars')
 const selectedPictureTemplate = require('../templates/selectedpicture.handlebars')
 
-// const store = require('../store')
-
-// const onCreatePictures = function(event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   api.createPictures(data)
-//     .then((response) => {
-//       store.picture = response.picture
-//       return store.picture
-//     })
-//     .then(ui.success)
-//     .fail(ui.failure)
-// }
-
 const onShowPictures = function (event) {
   if (event && event.preventDefault) {
     event.preventDefault()
   }
   api.showPictures()
     .then(function (response) {
-      console.log(response)
     })
     .fail(ui.fail)
 }
@@ -36,7 +21,7 @@ const onShowPictures = function (event) {
 const showPictureAndComments = function () {
   api.showComments().then(function (response) {
     $('.comments-list').empty()
-    $('.comments-list').append(selectedPictureTemplate({ title: window.currentTitle, id: window.pictureId, explanation: window.currentDescription, date: window.currentDate, photo: window.photo }))
+    $('.comments-list').append(selectedPictureTemplate({ title: window.currentTitle, id: window.pictureId, explanation: window.currentDescription, photo: window.photo }))
     for (let i = 0; i < response.comments.length; i++) {
       const comment = showCommentTemplate(response.comments[i])
       const commentPictureId = response.comments[i].picture.id
@@ -49,7 +34,6 @@ const showPictureAndComments = function () {
         event.preventDefault()
       }
       const data = getFormFields(event.target)
-      console.log('data is', data)
       api.addComment(data)
         .then(showPictureAndComments)
         .then(ui.addCommentSuccess)
@@ -94,7 +78,6 @@ const selectPicture = function (event) {
   window.pictureId = $(event.currentTarget).attr('picture-id')
   window.photo = $(event.currentTarget).attr('picture-photo')
   window.currentTitle = $(event.currentTarget).attr('picture-title')
-  window.currentDate = $(event.currentTarget).attr('picture-date')
   window.currentDescription = $(event.currentTarget).attr('picture-description')
   $('.comments-list').empty()
   showPictureAndComments(window.pictureId)
@@ -113,7 +96,6 @@ const onShowFavorites = function (event) {
   api.showFavorites()
     .then(function (response) {
       $('.favorites-list').empty()
-      console.log(response)
       for (let i = 0; i < response.favorites.length; i++) {
         const favorite = showFavoriteTemplate(response.favorites[i])
         $('.favorites-list').append(favorite)
@@ -131,24 +113,6 @@ const onShowFavorites = function (event) {
     })
     .fail(ui.fail)
 }
-
-// const savePictureToFavorites = function (event) {
-//   if (event && event.preventDefault) {
-//     event.preventDefault()
-//   }
-//   const data = getFormFields(event.target)
-//   console.log('favortie data is', data)
-//   api.createPictures(data)
-//   .then((response) => {
-//     store.picture = response.picture
-//     return store.picture
-//   })
-//     // .then(ui.savedPicture)
-//     // .fail(ui.fail)
-//     // // .then(api.addToFavoritesList)
-//     // .then(ui.addPictureToFavorites)
-//     // .fail(ui.addFavoriteFail)
-// }
 
 const showMyPictures = function () {
   $('#my-pictures-link').addClass('active')
@@ -261,21 +225,13 @@ const showSearchBar = function () {
 
 const addHandlers = () => {
   $('#saved-pictures').on('click', onShowPictures)
-  // $('.add-picture').on('submit', savePictureToFavorites)
   $('#my-pictures-link').on('click', showMyPictures)
   $('#show-favorites').on('click', onShowFavorites)
-  // $('#saved-pictures').on('click', onShowPictures);
-  // $('.show-epic-photos').on('click', showEarthImagery)
-  // $('#search-box').on('keypress', searchGameApi)
-  // $('#add-favorite').on('submit', onAddToFavoritesList)
-  // $('#create-picture').on('submit', onCreatePictures)
-  // $('#my-pictures-link').on('click', showMyPictures)
   $('#apod-link').on('click', showApodContainer)
   $('#sign-in-link').on('click', showSignIn)
   $('#change-password-link').on('click', showChangePassword)
   $('#comments-link').on('click', showComments)
   $('#search-bar-link').on('click', showSearchBar)
-  // $('#show-apod').on('click', showApod)
 }
 
 module.exports = {

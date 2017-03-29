@@ -1,7 +1,5 @@
 'use strict'
 
-// const events = require('./events');
-
 const success = (data) => {
   if (data) {
   }
@@ -10,10 +8,6 @@ const success = (data) => {
 const failure = (data) => {
   $('.message').text('Error!!!')
 }
-
-// const clearComments = () => {
-//   $('.comments-list').empty();
-// };
 
 const savedPicture = function () {
   $('.message').text('Picture Added to Saved Pictures!')
@@ -80,5 +74,4 @@ module.exports = {
   updateCommentSucces,
   addPictureToFavorites,
   savedPicture
-  // clearComments,
 };

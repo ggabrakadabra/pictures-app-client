@@ -1,7 +1,6 @@
 'use strict'
 
 const events = require('../api/events.js')
-// const api = require('./api')
 
 const success = (data) => {
 }

@@ -20,7 +20,6 @@ const showApod = function () {
     url: config.apiOrigin + '/search/apod/today',
     method: 'POST'
   }).done(function (results) {
-    console.log('apod', results)
     $('.apod-results').empty()
     const apodResult = apodTodayTemplate(results)
     $('.apod-results').append(apodResult)
@@ -29,7 +28,6 @@ const showApod = function () {
         event.preventDefault()
       }
       const data = getFormFields(event.target)
-      console.log('favortie picture data is', data)
       api.createPictures(data)
           .then(api.addToFavoritesList)
           .then(ui.addPictureToFavorites)
@@ -54,7 +52,6 @@ const searchPatentsApi = function () {
     data: data
   }).done(function (results) {
     $('.search-results').empty()
-    console.log('patent data', results)
     for (let i = 0; i < results.results.length; i++) {
       const singleSearchResult = patentsTemplate(results.results[i])
       $('.search-results').append(singleSearchResult)
@@ -78,7 +75,6 @@ const searchSoundsApi = function () {
     data: data
   }).done(function (results) {
     $('.search-results').empty()
-    console.log('sound results', results)
     for (let i = 0; i < results.results.length; i++) {
       const singleSearchResult = soundsTemplate(results.results[i])
       $('.search-results').append(singleSearchResult)
@@ -95,7 +91,6 @@ const neoDailyFeed = function () {
     method: 'POST'
   }).done(function (results) {
     $('.neo-results').empty()
-    console.log('neo results', results)
     const neoResults = neoTemplate(results)
     $('.neo').append(neoResults)
   })
@@ -110,7 +105,6 @@ const neoStats = function () {
     method: 'POST'
   }).done(function (results) {
     $('.neo-results').empty()
-    console.log('neo results', results)
     const neoResults = neoStatsTemplate(results)
     $('.neo-stats').append(neoResults)
   })
@@ -131,7 +125,6 @@ const searchMarsRoverApi = function () {
     method: 'POST',
     data: data
   }).done(function (results) {
-    console.log('mars', results)
     $('.search-results').empty()
     for (let i = 0; i < results.photos.length; i++) {
       const singleSearchResult = marsTemplate(results.photos[i])
@@ -155,9 +148,7 @@ const searchApod = function () {
     method: 'POST',
     data: data
   }).done(function (results) {
-    console.log('apod', results)
     $('.apod-results').empty()
-    // for (let i = 0; i < results.photos.length; i++) {
     const apodResult = apodTemplate(results)
     $('.apod-results').append(apodResult)
     $('.add-picture').on('submit', function (event) {
@@ -165,7 +156,6 @@ const searchApod = function () {
         event.preventDefault()
       }
       const data = getFormFields(event.target)
-      console.log('favortie picture data is', data)
       api.createPictures(data)
           .then(api.addToFavoritesList)
           .then(ui.addPictureToFavorites)
@@ -177,7 +167,6 @@ const searchApod = function () {
 const addHandlers = () => {
   $('.patents-search').on('click', searchPatentsApi)
   $('.sounds-search').on('click', searchSoundsApi)
-  // $('#apod-link').on('click', neoDailyFeed)
   $('.search-by-date').on('click', searchMarsRoverApi)
   $('#apod-link').on('click', showApod)
   $('.apod-search').on('click', searchApod)

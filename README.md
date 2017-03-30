@@ -235,7 +235,7 @@ const searchMarsRoverApi = function () {
       itemSelector: 'li',
       style: 'coverflow',
       start: '0',
-      keyboard: true,
+      keyboard: false,
       click: true,
       scrollwheel: true,
       fadeIn: 400,

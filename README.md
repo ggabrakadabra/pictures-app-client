@@ -256,3 +256,6 @@ I had to add the
 $('#mars-search-results').flipster('index')
 ```
 to make sure that when a user searches another date, the pictures load properly.
+
+## Next Steps
+The next thing I would want to add is the World Wind Globe. This adds an interactive globe on the webpage. But it also requires downloading a library that has all of the images.

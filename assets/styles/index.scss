@@ -123,7 +123,8 @@ body {
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: white;
+  color: white;
+  font-size: 16px;
 }
 
 .navbar-default .navbar-brand {
@@ -308,7 +309,7 @@ body {
 
 .api-apod-container {
   box-sizing: border-box;
-  overflow: scroll;
+  // overflow: scroll;
   height: auto;
   margin: auto;
   padding: 2% 8%;
@@ -356,7 +357,7 @@ input:hover {
 }
 
 .message {
-  font-size: 18px;
+  font-size: 17px;
   text-shadow: 2px 2px black;
   color: white;
   float: right;

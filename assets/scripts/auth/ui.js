@@ -63,6 +63,7 @@ const signInSuccess = function () {
 const signUpSuccess = function () {
   $('.message').text('Sign Up Successful!')
   $('#sign-up')[0].reset()
+  $('#sign-in')[0].reset()
 }
 
 const changePasswordSuccess = function () {

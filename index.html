@@ -6,11 +6,13 @@
 
       <!-- Do not add `link` tags unless you know what you are doing -->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="http://a.drien.com/src/css/jquery.flipster.css">
 
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="https://use.fontawesome.com/a614066344.js"></script>
+
     </head>
     <body class="body-container-fluid">
       <nav class="navbar navbar-default navbar-fixed-top">
@@ -37,6 +39,9 @@
               </li>
               <li id="apod-link">
                 <a href="#">APOD</a>
+              </li>
+              <li id="mars-rover-link">
+                <a href="#">Mars Rover Photos</a>
               </li>
               <li id="search-bar-link">
                 <a href="#">Search</a>
@@ -122,26 +127,33 @@
               <button class="btn-primary sounds-search">View Sounds</button>
             </div>
           </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Search Mars Rover Photos By Date</h3>
-            </div>
-            <div class="panel-body">
-              <div class="search-mars">
-                  <div class="search-mars-date">
-                    <input type="date" id="earth-date">
-                    <button class="btn-primary search-by-date">Search Mars Rover Photos</button>
-                  </div>
-              </div>
-            </div>
-          </div>
             <div class="neo-stats"></div>
             <div class="neo"></div>
         </div>
-        <div class="search-results">
-        </div>
+        <div class="search-results"></div>
       </div>
        <!-- this will be the div for the search bar -->
+
+       <div class="mars-rover-container">
+          <div class="search-mars" style="display: none;">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Search Mars Rover Photos By Date</h3>
+              </div>
+              <div class="panel-body">
+                 <div class="search-mars-date">
+                   <input type="date" id="earth-date">
+                   <button class="btn-primary search-by-date">Search Mars Rover Photos</button>
+                 </div>
+             </div>
+            </div>
+         </div>
+         <div id="mars-search-results">
+           <ul class="mars-list" style="height: 500px; width: 100%;">
+           </ul>
+         </div>
+       </div>
+
       <div class="apod-container">
           <div class="apod-results"></div>
           <div class="search-apod">

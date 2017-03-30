@@ -125,11 +125,22 @@ const searchMarsRoverApi = function () {
     method: 'POST',
     data: data
   }).done(function (results) {
-    $('.search-results').empty()
+    $('.mars-list').empty()
     for (let i = 0; i < results.photos.length; i++) {
       const singleSearchResult = marsTemplate(results.photos[i])
-      $('.search-results').append(singleSearchResult)
+      $('.mars-list').append(singleSearchResult)
     }
+    $('#mars-search-results').flipster({
+      itemContainer: 'ul',
+      itemSelector: 'li',
+      style: 'coverflow',
+      start: '0',
+      // onItemSwitch: function (currentItem, previousItem) {
+      //   console.log(currentItem)
+      //   console.log(previousItem)
+      // },
+      spacing: -0.6
+    })
   })
 }
 

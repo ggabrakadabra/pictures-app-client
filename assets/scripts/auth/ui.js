@@ -19,6 +19,8 @@ const changePasswordFailure = function () {
   $('#change-password')[0].reset()
 }
 
+$('#mars-rover-link').hide()
+$('.mars-rover-container').hide()
 $('#my-pictures-link').hide()
 $('#apod-link').hide()
 $('.apod-container').hide()
@@ -31,6 +33,8 @@ $('#search-bar-link').hide()
 const signInSuccess = function () {
   $('.message').text('Sign In Successful!')
   $('#sign-in')[0].reset()
+  $('#mars-rover-link').show()
+  $('.mars-rover-container').show()
   $('#apod-link').removeClass('active')
   $('#change-password-link').removeClass('active')
   $('#my-pictures-link').removeClass('active')
@@ -67,6 +71,8 @@ const changePasswordSuccess = function () {
 }
 
 const signOutSuccess = function () {
+  $('#mars-rover-link').hide()
+  $('.mars-rover-container').hide()
   $('.message').text('Sign Out Successful!')
   $('#sign-in-link').addClass('active')
   $('.sign-in-container').show()

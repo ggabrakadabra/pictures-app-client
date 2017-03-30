@@ -130,6 +130,8 @@ const showMyPictures = function () {
   $('.sign-in-container').hide()
   $('.change-password-container').hide()
   $('.picture-container').hide()
+  $('#mars-rover-link').removeClass('active')
+  $('.mars-rover-container').hide()
 
   onShowFavorites()
 }
@@ -151,6 +153,8 @@ const showApodContainer = function () {
   $('.sign-in-container').hide()
   $('.change-password-container').hide()
   $('.comment-container').hide()
+  $('#mars-rover-link').removeClass('active')
+  $('.mars-rover-container').hide()
 }
 
 // show sign in
@@ -169,6 +173,8 @@ const showSignIn = function () {
   $('.apod-container').hide()
   $('.change-password-container').hide()
   $('.picture-container').hide()
+  $('#mars-rover-link').removeClass('active')
+  $('.mars-rover-container').hide()
 }
 
 // show change password
@@ -186,6 +192,8 @@ const showChangePassword = function () {
   $('.comment-container').hide()
   $('.search-container').hide()
   $('.picture-container').hide()
+  $('#mars-rover-link').removeClass('active')
+  $('.mars-rover-container').hide()
 }
 
 const showComments = function () {
@@ -203,12 +211,35 @@ const showComments = function () {
   $('.search-container').hide()
   $('.change-password-container').hide()
   $('.picture-container').hide()
+  $('#mars-rover-link').removeClass('active')
+  $('.mars-rover-container').hide()
 }
 
 const showSearchBar = function () {
   $('#search-bar-link').addClass('active')
   $('.search-container').show()
-  $('.movie-container').show()
+  $('#my-pictures-link').removeClass('active')
+  $('#apod-link').removeClass('active')
+  $('#sign-in-link').removeClass('active')
+  $('#change-password-link').removeClass('active')
+  $('#sign-out-link').removeClass('active')
+  $('#comments-link').removeClass('active')
+  $('.comment-container').hide()
+  $('.apod-container').hide()
+  $('.favorites-container').hide()
+  $('.sign-in-container').hide()
+  $('.change-password-container').hide()
+  $('.comment-container').hide()
+  $('#mars-rover-link').removeClass('active')
+  $('.mars-rover-container').hide()
+}
+
+const showMars = function () {
+  $('#mars-rover-link').addClass('active')
+  $('.mars-rover-container').show()
+  $('.search-mars').show()
+  $('#search-bar-link').removeClass('active')
+  $('.search-container').hide()
   $('#my-pictures-link').removeClass('active')
   $('#apod-link').removeClass('active')
   $('#sign-in-link').removeClass('active')
@@ -224,6 +255,7 @@ const showSearchBar = function () {
 }
 
 const addHandlers = () => {
+  $('#mars-rover-link').on('click', showMars)
   $('#saved-pictures').on('click', onShowPictures)
   $('#my-pictures-link').on('click', showMyPictures)
   $('#show-favorites').on('click', onShowFavorites)

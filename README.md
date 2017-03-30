@@ -8,7 +8,10 @@
 
 ## Overview
 This web application allows users to view APOD and also save their favorite photos and view them later and also comment on them. There are also NEO facts displayed in the search page and users can search through Mars rover photos, NASA patents, and NASA sounds. Users can visit this page if they want to see more than just APOD. If they want to search Mars rover photos by date they can easily do that. If they want to search through NASA patents, all they need to do is enter a keywork into the search. Or if they want to browse they space sounds, it only takes a click of a button.
-This app was made for people who love browsing photos of space and who want to be able to save all of their favorite photos in one place. They also have access to a lot of information without having to visit more than one website. 
+
+This app was made for people who love browsing photos of space and who want to be able to save all of their favorite photos in one place. They also have access to a lot of information without having to visit more than one website.
+
+I created this page because I've always loved the Astronomy Picture of the Day website and when I learned that NASA has a lot of open APIs I wanted to put as many of them on one page as possible. I really like how this page turned out and I hope users enjoy it also.
 
 ## Technologies Used
 * JavaScript

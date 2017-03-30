@@ -135,12 +135,15 @@ const searchMarsRoverApi = function () {
       itemSelector: 'li',
       style: 'coverflow',
       start: '0',
-      // onItemSwitch: function (currentItem, previousItem) {
-      //   console.log(currentItem)
-      //   console.log(previousItem)
-      // },
-      spacing: -0.6
+      keyboard: true,
+      click: true,
+      scrollwheel: true,
+      fadeIn: 400,
+      loop: false,
+      autoplay: false,
+      spacing: -0.5
     })
+    $('#mars-search-results').flipster('index')
   })
 }
 

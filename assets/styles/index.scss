@@ -190,7 +190,7 @@ body {
 .picture-description {
   flex-grow: 1;
   padding: 2em;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -335,22 +335,6 @@ input {
 
 input:hover {
   cursor: pointer;
-}
-
-legend {
-  margin-top: 7%;
-  margin-bottom: 7%;
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-align: center;
-  color: #5b5b5b;
-}
-
-label {
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-align: center;
-  color: #5b5b5b;
 }
 
 .single-search-result {

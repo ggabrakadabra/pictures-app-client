@@ -176,3 +176,79 @@ $.ajax({
 }).done(function (results) {
 ```
 Now, the function will call the config file and grab the url from there.
+
+## Cool Stuff
+I wanted to add something else to my project to make it 'pop'. After googling, I found flipster. WHich would allow me to display my mars photos. In order to implement flipster, I had to add it to the package.json file and the webpack file. I also needed to add it to the index.html and the scss file so that everything would work properly.
+
+Before using flipster, this was my handlebars file for the mars rover photos
+```
+<div class="single-search-result-mars">
+  <div>Camera: {{camera.full_name}}</div>
+  <div>Date: {{earth_date}}</div>
+  <div class="rover-name">Rover Name: {{rover.name}}</div>
+  <div>Landing Date: {{rover.landing_date}}</div>
+  <div>Launch Date: {{rover.launch_date}}</div>
+      <img src="{{img_src}}" class="search-result-photo-mars"></img>
+</div>
+```
+
+After getting the flipster to work, I decided to take off the information about each picture and only show the pictures because I don't want anything to take attention away from the slideshow.
+
+This is the new handlebars file
+```
+<li><img src="{{img_src}}" style="width: 500px; height: 500px;"></img>
+</li>
+```
+This is the corresponding index.html
+
+```
+<div id="mars-search-results">
+  <ul class="mars-list" style="height: 500px; width: 100%;">
+  </ul>
+</div>
+```
+
+The function for using flipter with the mars rover looks like this
+```
+const searchMarsRoverApi = function () {
+  const earthDate = $('#earth-date').val()
+  const data = {
+    search: {
+      query: earthDate
+    }
+  }
+  $.ajax({
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    url: config.apiOrigin + '/search/mars',
+    method: 'POST',
+    data: data
+  }).done(function (results) {
+    $('.mars-list').empty()
+    for (let i = 0; i < results.photos.length; i++) {
+      const singleSearchResult = marsTemplate(results.photos[i])
+      $('.mars-list').append(singleSearchResult)
+    }
+    $('#mars-search-results').flipster({
+      itemContainer: 'ul',
+      itemSelector: 'li',
+      style: 'coverflow',
+      start: '0',
+      keyboard: true,
+      click: true,
+      scrollwheel: true,
+      fadeIn: 400,
+      loop: false,
+      autoplay: false,
+      spacing: -0.5
+    })
+    $('#mars-search-results').flipster('index')
+  })
+}
+```
+I had to add the
+```
+$('#mars-search-results').flipster('index')
+```
+to make sure that when a user searches another date, the pictures load properly.

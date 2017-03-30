@@ -61,7 +61,7 @@
          <form id="sign-up">
            <fieldset>
              <label>
-               <input type="text" placeholder="Email" name="credentials[email]">
+               <input type="email" placeholder="Email" name="credentials[email]">
              </label>
                <input type="password" pattern=".{1,}" required title="1 character minimum" placeholder="Password" name="credentials[password]">
              <label>
@@ -89,8 +89,8 @@
          <form id="change-password">
            <fieldset>
              <label>
-             <input type="password" placeholder="Old Password" name="passwords[old]">
-             <input type="password" placeholder="New Password" name="passwords[new]">
+             <input type="password" pattern=".{1,}" required title="1 character minimum" placeholder="Old Password" name="passwords[old]">
+             <input type="password" pattern=".{1,}" required title="1 character minimum" placeholder="New Password" name="passwords[new]">
            </label>
            <input type="submit" class="btn btn-primary" name="submit" value="Change Password">
            </fieldset>
@@ -114,7 +114,8 @@
             </div>
             <div class="panel-body">
               <div class="search-bar">
-                <input type="text" id="search-box" placeholder="Search by Keyword">
+                <p>Search through patents using keywords likes 'nature' or 'temperature'</p>
+                <input type="text" pattern=".{1,}" required title="1 character minimum" id="search-box" placeholder="Search by Keyword">
                 <button class="btn-primary patents-search">Search Patents</button>
               </div>
             </div>
@@ -155,7 +156,6 @@
        </div>
 
       <div class="apod-container">
-          <div class="apod-results"></div>
           <div class="search-apod">
             <h4>Search APOD photos by date</h4>
             <p>Search through apod gallery by date</p>
@@ -164,6 +164,7 @@
                 <button class="btn-primary apod-search">Search APOD Photos</button>
               </div>
           </div>
+          <div class="apod-results"></div>
       </div>
 
     </body>

@@ -2,6 +2,7 @@
 const store = require('../store')
 const api = require('../crud/api')
 const ui = require('../crud/ui')
+const apiUi = require('./ui')
 const config = require('../config')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const marsTemplate = require('../templates/marsrover.handlebars')
@@ -57,6 +58,7 @@ const searchPatentsApi = function () {
       $('.search-results').append(singleSearchResult)
     }
   })
+  .then(apiUi.searchPatentsSuccess)
 }
 
 const searchSoundsApi = function () {
@@ -80,6 +82,7 @@ const searchSoundsApi = function () {
       $('.search-results').append(singleSearchResult)
     }
   })
+  .then(apiUi.searchSoundsSuccess)
 }
 
 const neoDailyFeed = function () {
@@ -135,7 +138,7 @@ const searchMarsRoverApi = function () {
       itemSelector: 'li',
       style: 'coverflow',
       start: '0',
-      keyboard: true,
+      keyboard: false,
       click: true,
       scrollwheel: true,
       fadeIn: 400,
@@ -145,6 +148,8 @@ const searchMarsRoverApi = function () {
     })
     $('#mars-search-results').flipster('index')
   })
+  .then(apiUi.searchMarsSuccess)
+  .fail(apiUi.searchMarsFail)
 }
 
 const searchApod = function () {

@@ -115,6 +115,7 @@ const onShowFavorites = function (event) {
 }
 
 const showMyPictures = function () {
+  $('.message').text('Favorite Pictures')
   $('#my-pictures-link').addClass('active')
   $('.favorites-container').show()
   $('.delete-favorite').show()
@@ -138,6 +139,7 @@ const showMyPictures = function () {
 
 // show search bar and hide favorites
 const showApodContainer = function () {
+  $('.message').text('Astronomy Picture of the Day')
   $('#apod-link').addClass('active')
   $('.apod-container').show()
   $('.picture-container').show()
@@ -179,6 +181,7 @@ const showSignIn = function () {
 
 // show change password
 const showChangePassword = function () {
+  $('.message').text('Change Password')
   $('#change-password-link').addClass('active')
   $('.change-password-container').show()
   $('#my-pictures-link').removeClass('active')
@@ -216,6 +219,7 @@ const showComments = function () {
 }
 
 const showSearchBar = function () {
+  $('.message').text('Seach Patents or Sounds')
   $('#search-bar-link').addClass('active')
   $('.search-container').show()
   $('#my-pictures-link').removeClass('active')
@@ -235,6 +239,7 @@ const showSearchBar = function () {
 }
 
 const showMars = function () {
+  $('.message').text('View Mars Rover Photos')
   $('#mars-rover-link').addClass('active')
   $('.mars-rover-container').show()
   $('.search-mars').show()

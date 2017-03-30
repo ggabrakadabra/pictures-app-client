@@ -6,6 +6,12 @@
 
 **Deployed:** <https://salty-ravine-27099.herokuapp.com/>
 
+## Dependencies
+In order to use flipster
+```
+npm install jquery.flipster
+```
+
 ## Overview
 This web application allows users to view APOD and also save their favorite photos and view them later and also comment on them. There are also NEO facts displayed in the search page and users can search through Mars rover photos, NASA patents, and NASA sounds. Users can visit this page if they want to see more than just APOD. If they want to search Mars rover photos by date they can easily do that. If they want to search through NASA patents, all they need to do is enter a keywork into the search. Or if they want to browse they space sounds, it only takes a click of a button.
 

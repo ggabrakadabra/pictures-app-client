@@ -181,6 +181,7 @@ const searchApod = function () {
           .fail(ui.addFavoriteFail)
     })
   })
+    .fail(ui.searchApodFail)
 }
 
 const addHandlers = () => {

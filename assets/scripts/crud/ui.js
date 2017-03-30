@@ -17,6 +17,10 @@ const addPictureToFavorites = function () {
   $('.message').text('Picture Added to Favorites!')
 }
 
+const searchApodFail = function () {
+  $('.message').text('No APOD for that Date')
+}
+
 const addFavoriteFail = function () {
   $('.message').text('Favorite Already Added!')
 }
@@ -73,5 +77,6 @@ module.exports = {
   deleteFavoriteSuccess,
   updateCommentSucces,
   addPictureToFavorites,
-  savedPicture
+  savedPicture,
+  searchApodFail
 };

@@ -73,6 +73,7 @@ const changePasswordSuccess = function () {
 
 const signOutSuccess = function () {
   $('#mars-rover-link').hide()
+  $('#change-password')[0].reset()
   $('.mars-rover-container').hide()
   $('.message').text('Sign Out Successful!')
   $('#sign-in-link').addClass('active')

@@ -199,6 +199,10 @@ body {
   text-align: center;
 }
 
+.comment {
+  padding: 2em;
+}
+
 .comment:hover .delete-comment {
   display: inline-block;
   cursor: pointer;

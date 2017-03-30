@@ -53,12 +53,17 @@ const searchPatentsApi = function () {
     data: data
   }).done(function (results) {
     $('.search-results').empty()
-    for (let i = 0; i < results.results.length; i++) {
-      const singleSearchResult = patentsTemplate(results.results[i])
-      $('.search-results').append(singleSearchResult)
+    if (results.count == 0) {
+      $('.message').text('No Results')
+    } else if (results.count > 0) {
+      for (let i = 0; i < results.results.length; i++) {
+        const singleSearchResult = patentsTemplate(results.results[i])
+        $('.search-results').append(singleSearchResult)
+      }
+      apiUi.searchPatentsSuccess()
     }
+    $('#search-box').val('')
   })
-  .then(apiUi.searchPatentsSuccess)
 }
 
 const searchSoundsApi = function () {

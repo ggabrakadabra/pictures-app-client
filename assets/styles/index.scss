@@ -79,16 +79,18 @@ body {
 }
 
 .search-mars {
-  flex-basis: 20%;
-  padding: 2em;
+  flex-basis: 10%;
+  display: block;
+  padding: 1em;
 }
 
 .mars-search-results {
-  flex-basis: 75%;
+  flex-basis: 85%;
+  display: block;
 }
 
 .search-results {
-  flex-basis: 75%;
+  flex-basis: 80%;
 
 }
 

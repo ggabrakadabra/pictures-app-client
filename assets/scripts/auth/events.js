@@ -18,9 +18,6 @@ const onSignIn = function (event) {
   const data = getFormFields(event.target)
   api.signIn(data)
     .done((response) => {
-      // localStorage.setItem('id', response.user.id)
-      // localStorage.setItem('token', response.user.token)
-      // localStorage.setItem('email', response.user.email)
       store.user = response.user
       window.loggedInUserId = response.user.id
       return store.user

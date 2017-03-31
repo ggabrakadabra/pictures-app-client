@@ -36,6 +36,7 @@ const signInSuccess = function () {
   $('#mars-rover-link').show()
   $('.mars-rover-container').show()
   $('#apod-link').removeClass('active')
+  $('#mars-rover-link').removeClass('active')
   $('#change-password-link').removeClass('active')
   $('#my-pictures-link').removeClass('active')
   $('#search-bar-link').addClass('active')
@@ -74,6 +75,8 @@ const changePasswordSuccess = function () {
 
 const signOutSuccess = function () {
   $('#sign-up')[0].reset()
+  $('#earth-date').val('')
+  $('#apod-date').val('')
   $('#mars-rover-link').hide()
   $('#change-password')[0].reset()
   $('.mars-rover-container').hide()

@@ -21,6 +21,10 @@ const searchApodFail = function () {
   $('.message').text('No APOD for that Date')
 }
 
+const searchApodSuccess = function () {
+  $('.message').text('Astronomy Picture of the Day')
+}
+
 const addFavoriteFail = function () {
   $('.message').text('Favorite Already Added!')
 }
@@ -78,5 +82,6 @@ module.exports = {
   updateCommentSucces,
   addPictureToFavorites,
   savedPicture,
-  searchApodFail
+  searchApodFail,
+  searchApodSuccess
 };

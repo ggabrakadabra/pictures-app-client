@@ -208,6 +208,7 @@ const searchApod = function () {
           .fail(ui.addFavoriteFail)
     })
   })
+    .then(ui.searchApodSuccess)
     .fail(ui.searchApodFail)
 }
 

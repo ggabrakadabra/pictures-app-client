@@ -61,6 +61,11 @@ Wireframe:
 1st ERD:
 ![ERD1](ERD.jpg "1st ERD")
 
+## ScreenShots
+![Screen Shot](screenshotone.jpg "Screen Shot")
+![Screen Shot](screenshottwo.jpg "Screen Shot")
+![Screen Shot](screenshotthree.jpg "Screen Shot")
+
 ## User Stories
 * As a user, I want to view the Astronomy Picture of the Day
 * As a user, I want to be able to search through NASA patents

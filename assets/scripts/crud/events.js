@@ -220,7 +220,6 @@ const showComments = function () {
 const showSearchBar = function () {
   $('.message').text('Seach Patents or Sounds')
   $('#search-bar-link').addClass('active')
-  $('#mars-rover-link').removeClass('active')
   $('.search-container').show()
   $('#my-pictures-link').removeClass('active')
   $('#apod-link').removeClass('active')

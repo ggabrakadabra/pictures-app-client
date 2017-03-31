@@ -78,6 +78,7 @@ const signOutSuccess = function () {
   $('#earth-date').val('')
   $('#apod-date').val('')
   $('#mars-rover-link').hide()
+  $('#mars-rover-link').removeClass('active')
   $('#change-password')[0].reset()
   $('.mars-rover-container').hide()
   $('.message').text('Sign Out Successful!')

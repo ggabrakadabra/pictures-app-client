@@ -8,18 +8,21 @@
 
 ## Dependencies
 In order to use flipster
+
 ```
 npm install jquery.flipster
 ```
 
 ## Overview
+
 This web application allows users to view APOD and also save their favorite photos and view them later and also comment on them. There are also NEO facts displayed in the search page and users can search through Mars rover photos, NASA patents, and NASA sounds. Users can visit this page if they want to see more than just APOD. If they want to search Mars rover photos by date they can easily do that. If they want to search through NASA patents, all they need to do is enter a keywork into the search. Or if they want to browse they space sounds, it only takes a click of a button.
 
 This app was made for people who love browsing photos of space and who want to be able to save all of their favorite photos in one place. They also have access to a lot of information without having to visit more than one website.
 
-I created this page because I've always loved the Astronomy Picture of the Day website and when I learned that NASA has a lot of open APIs I wanted to put as many of them on one page as possible. I really like how this page turned out and I hope users enjoy it also.
+I created this page because I've always loved the Astronomy Picture of the Day website and when I learned that NASA has a lot of open APIs I wanted to put as many of them on one page as possible. I wanted to create a site that could search through as many different NASA APIs possible. This website allows users to search through the patents by keyword or search through the sounds by keyword. Users can also show the index of all sounds on NASA's sounds api. I really like how this page turned out and I hope users enjoy it also.
 
 ## Technologies Used
+
 * JavaScript
 * jQuery
 * Handlebars
@@ -27,6 +30,7 @@ I created this page because I've always loved the Astronomy Picture of the Day w
 * Ruby on Rails
 
 ## About
+
 To start the front end, I began with testing that the user sign in, sign up, and etc was working properly with the back end. After setting the required files in the appropriate folders, the sign in, sign up and sign out worked properly.
 
 Then I moved on to creating the api calls and the corresponding functions. I started by just indexing the users pictures by clicking a button. Then I needed to create a handlebars file to display the users pictures.
@@ -54,19 +58,23 @@ I also have another function that shows the total of near earth objects.
 I wanted to use more of the NASA apis but some were not relevant to this project.
 
 ## Wireframe
+
 Wireframe:
 ![Wireframe](Wireframe.jpg "Wireframe")
 
 ## ERD
+
 1st ERD:
 ![ERD1](ERD.jpg "1st ERD")
 
 ## ScreenShots
+
 ![Screen Shot](screenshotone.png "Screen Shot")
 ![Screen Shot](screenshottwo.png "Screen Shot")
 ![Screen Shot](screenshotthree.png "Screen Shot")
 
 ## User Stories
+
 * As a user, I want to view the Astronomy Picture of the Day
 * As a user, I want to be able to search through NASA patents
 * As a user, I want to be able to search through NASA sounds
@@ -82,6 +90,7 @@ Wireframe:
 * As a user, I want to delete my own comments
 
 ## API Functions
+
 I created a different file for all of my api calls so that I could organizae them better. Each function has its own handlebars template to render the results also. Since I want the user to be able to save any APOD photo, I created 2 apod functions. One that only displays the astro picture of the day and one that allows the user to search through the APOD gallery. In order for the user to be able to save these photos, I had to add another function that would save the data from the results to the users favorite list.
 
 This is what the APOD for each day looks like
@@ -193,6 +202,7 @@ $.ajax({
 Now, the function will call the config file and grab the url from there.
 
 ## Cool Stuff
+
 I wanted to add something else to my project to make it 'pop'. After googling, I found flipster. WHich would allow me to display my mars photos. In order to implement flipster, I had to add it to the package.json file and the webpack file. I also needed to add it to the index.html and the scss file so that everything would work properly.
 
 Before using flipster, this was my handlebars file for the mars rover photos
@@ -269,4 +279,7 @@ $('#mars-search-results').flipster('index')
 to make sure that when a user searches another date, the pictures load properly.
 
 ## Next Steps
-The next thing I would want to add is the World Wind Globe. This adds an interactive globe on the webpage. But it also requires downloading a library that has all of the images.
+
+The next thing I would want to add is the NASA World Wind Globe. This adds an interactive globe on the webpage. But it also requires downloading a library that has all of the images.
+
+I also want to continue to make the website more user friendly, I want each piece to flow together.

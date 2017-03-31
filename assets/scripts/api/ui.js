@@ -6,6 +6,7 @@ const searchMarsSuccess = function () {
 
 const searchMarsFail = function () {
   $('.message').text('No Pictures for that Day')
+  $('.mars-list').empty()
 }
 
 const searchSoundsSuccess = function () {

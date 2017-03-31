@@ -98,7 +98,6 @@ const searchSoundsApiByQuery = function () {
     method: 'POST',
     data: data
   }).done(function (results) {
-    console.log(results)
     $('.search-results').empty()
     if (results.count == 0) {
       $('.message').text('No Results')

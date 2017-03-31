@@ -64,6 +64,7 @@ const signUpSuccess = function () {
   $('.message').text('Sign Up Successful!')
   $('#sign-up')[0].reset()
   $('#sign-in')[0].reset()
+  $('#sign-up')[0].reset()
 }
 
 const changePasswordSuccess = function () {
@@ -72,6 +73,7 @@ const changePasswordSuccess = function () {
 }
 
 const signOutSuccess = function () {
+  $('#sign-up')[0].reset()
   $('#mars-rover-link').hide()
   $('#change-password')[0].reset()
   $('.mars-rover-container').hide()

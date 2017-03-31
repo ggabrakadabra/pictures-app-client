@@ -98,13 +98,18 @@ const searchSoundsApiByQuery = function () {
     method: 'POST',
     data: data
   }).done(function (results) {
+    console.log(results)
     $('.search-results').empty()
-    for (let i = 0; i < results.results.length; i++) {
-      const singleSearchResult = soundsTemplate(results.results[i])
-      $('.search-results').append(singleSearchResult)
+    if (results.count == 0) {
+      $('.message').text('No Results')
+    } else if (results.count > 0) {
+      for (let i = 0; i < results.results.length; i++) {
+        const singleSearchResult = soundsTemplate(results.results[i])
+        $('.search-results').append(singleSearchResult)
+      }
+      apiUi.searchSoundsSuccess()
     }
   })
-  .then(apiUi.searchSoundsSuccess)
   $('#sounds-search-box').val('')
 }
 

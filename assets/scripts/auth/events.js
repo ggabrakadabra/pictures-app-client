@@ -9,20 +9,24 @@ const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signUp(data)
-    .done(ui.signUpSuccess)
+    .then(() => {
+      onSignIn(event, data)
+    })
+    .then(ui.signUpSuccess)
     .fail(ui.SignInFailure)
+    .then(ui)
 }
 
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signIn(data)
-    .done((response) => {
+    .then((response) => {
       store.user = response.user
       window.loggedInUserId = response.user.id
       return store.user
     })
-    .done(ui.signInSuccess)
+    .then(ui.signInSuccess)
     .fail(ui.SignInFailure)
 }
 
@@ -30,7 +34,7 @@ const onSignOut = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signOut(data)
- .done(ui.signOutSuccess)
+ .then(ui.signOutSuccess)
  .fail(ui.failure)
 }
 
@@ -38,7 +42,7 @@ const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.changePassword(data)
- .done(ui.changePasswordSuccess)
+ .then(ui.changePasswordSuccess)
  .fail(ui.changePasswordFailure)
 }
 

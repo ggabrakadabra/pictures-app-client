@@ -67,7 +67,24 @@ const searchPatentsApi = function () {
 }
 
 const searchSoundsApi = function () {
-  const searchText = $('#search-box').val()
+  $.ajax({
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    url: config.apiOrigin + '/search/sounds',
+    method: 'POST'
+  }).done(function (results) {
+    $('.search-results').empty()
+    for (let i = 0; i < results.results.length; i++) {
+      const singleSearchResult = soundsTemplate(results.results[i])
+      $('.search-results').append(singleSearchResult)
+    }
+  })
+  .then(apiUi.searchSoundsSuccess)
+}
+
+const searchSoundsApiByQuery = function () {
+  const searchText = $('#sounds-search-box').val()
   const data = {
     search: {
       query: searchText
@@ -77,7 +94,7 @@ const searchSoundsApi = function () {
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    url: config.apiOrigin + '/search/sounds',
+    url: config.apiOrigin + '/search/sounds/query',
     method: 'POST',
     data: data
   }).done(function (results) {
@@ -88,6 +105,7 @@ const searchSoundsApi = function () {
     }
   })
   .then(apiUi.searchSoundsSuccess)
+  $('#sounds-search-box').val('')
 }
 
 const neoDailyFeed = function () {
@@ -192,6 +210,7 @@ const searchApod = function () {
 const addHandlers = () => {
   $('.patents-search').on('click', searchPatentsApi)
   $('.sounds-search').on('click', searchSoundsApi)
+  $('.sounds-search-query').on('click', searchSoundsApiByQuery)
   $('.search-by-date').on('click', searchMarsRoverApi)
   $('#apod-link').on('click', showApod)
   $('.apod-search').on('click', searchApod)

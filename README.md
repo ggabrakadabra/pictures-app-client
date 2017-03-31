@@ -6,6 +6,11 @@
 
 **Deployed:** <https://salty-ravine-27099.herokuapp.com/>
 
+
+## Pitch Deck
+
+ **Pitch Deck:** <http://prezi.com/gratvmedzubt/?utm_campaign=share&utm_medium=copy&rc=ex0share>
+
 ## Dependencies
 In order to use flipster
 

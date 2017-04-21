@@ -167,6 +167,7 @@ const searchMarsRoverApi = function () {
       start: '0',
       keyboard: false,
       click: true,
+      buttons: true,
       scrollwheel: true,
       fadeIn: 400,
       loop: false,

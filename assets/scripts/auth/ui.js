@@ -108,6 +108,8 @@ const signOutSuccess = function () {
   $('#search-box').val('')
   $('.comments-list').empty()
   $('#search-bar-link').hide()
+  $('.neo').empty()
+  $('.neo-stats').empty()
 }
 
 module.exports = {

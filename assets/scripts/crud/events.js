@@ -235,6 +235,9 @@ const showSearchBar = function () {
   $('.comment-container').hide()
   $('#mars-rover-link').removeClass('active')
   $('.mars-rover-container').hide()
+  $('.search-mars').hide()
+  $('#mars-search-results').hide()
+  $('.search-message').show()
 }
 
 const showMars = function () {
@@ -242,6 +245,7 @@ const showMars = function () {
   $('#mars-rover-link').addClass('active')
   $('.mars-rover-container').show()
   $('.search-mars').show()
+  $('#mars-search-results').show()
   $('#search-bar-link').removeClass('active')
   $('.search-container').hide()
   $('#my-pictures-link').removeClass('active')

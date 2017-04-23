@@ -94,8 +94,8 @@
          <div class="welcome-message">
            <h2>Welcome to my Website!</h2>
            <h3>This website allows users to view mars rover photos, the astronomy picture of the day and also add their favorite pictures to a list.</h3>
-           <h3>To use this website, please sign in using email: user@user password: user
-           </h3>
+           <h3>If you'd like to interact with the website and play around, please sign in using</h3>
+           <h3>email: user@user password: user</h3>
          </div>
        </div>
        <!-- change password div -->
@@ -129,8 +129,8 @@
             <div class="panel-body">
               <div class="search-bar">
                 <p>Search through patents using keywords likes 'nature' or 'temperature'</p>
-                <input type="text" id="search-box" maxlength="13" placeholder="Search by Keyword" required>
-                <button class="btn-primary patents-search">Search Patents</button>
+                <input type="text" id="search-box" maxlength="25" placeholder="Search by Keyword" required>
+                <button class="btn btn-primary patents-search">Search Patents</button>
               </div>
             </div>
           </div>
@@ -140,19 +140,22 @@
             </div>
             <div class="panel-body">
               <p>NASA sounds API needs to be updated so not all sounds have descriptions</p>
-              <input type="text" id="sounds-search-box" maxlength="10" placeholder="Search by Keyword" required>
-              <button class="btn-primary sounds-search">Show All Sounds</button>
-              <button class="btn-primary sounds-search-query">Search Sounds</button>
+              <input type="text" id="sounds-search-box" maxlength="15" placeholder="Search by Keyword" required>
+              <button class="btn btn-primary sounds-search">Show All Sounds</button>
+              <button class="btn btn-primary sounds-search-query">Search Sounds</button>
             </div>
           </div>
             <div class="neo-stats"></div>
             <div class="neo"></div>
         </div>
-        <div class="search-results"></div>
+        <div class="search-results">
+          <!-- <h3 class="search-message">This is where you will see your search results</h3> -->
+        </div>
       </div>
        <!-- this will be the div for the search bar -->
 
-       <div class="mars-rover-container">
+       <div class="mars-rover-container" style="display: none;">
+         <!-- <h3 class="search-message">Search results will display on the right</h3> -->
           <div class="search-mars" style="display: none;">
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -161,13 +164,13 @@
               <div class="panel-body">
                  <div class="search-mars-date">
                    <input type="date" id="earth-date" max='9999-01-01'>
-                   <button class="btn-primary search-by-date">Search Mars Rover Photos</button>
+                   <button class="btn btn-primary search-by-date">Search Mars Rover Photos</button>
                  </div>
              </div>
             </div>
          </div>
-         <div id="mars-search-results">
-           <ul class="mars-list" style="height: 500px; width: 100%;">
+         <div id="mars-search-results" style="display: none;">
+           <ul class="mars-list" style="height: 400px; width: 100%;">
            </ul>
          </div>
        </div>

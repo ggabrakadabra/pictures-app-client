@@ -2,6 +2,7 @@
 
 const searchMarsSuccess = function () {
   $('.message').text('Searching Mars Photos')
+  $('.mars-search-message').hide()
 }
 
 const searchMarsFail = function () {
@@ -11,10 +12,12 @@ const searchMarsFail = function () {
 
 const searchSoundsSuccess = function () {
   $('.message').text('Viewing Space Sounds')
+  $('.search-message').hide()
 }
 
 const searchPatentsSuccess = function () {
   $('.message').text('Searching NASA Patents')
+  $('.search-message').hide()
 }
 
 module.exports = {

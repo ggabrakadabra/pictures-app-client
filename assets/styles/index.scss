@@ -11,6 +11,7 @@ body {
 
 .apod-results, .search-apod {
   color: #bc509c;
+  margin: 1em;
 }
 
 .fa-pencil, .fa-globe, .fa-space-shuttle {
@@ -80,6 +81,20 @@ body {
   text-align: center;
 }
 
+.search-message, .mars-search-message {
+  color: #bc509c;
+  text-align: center;
+}
+
+.patents-search {
+  margin: .5em;
+  text-align: center;
+}
+
+.sounds-search, .sounds-search-query, .search-by-date, #earth-date {
+  margin: .25em;
+  text-align: center;
+}
 // .sign-up-div {
 //   display: block;
 // }

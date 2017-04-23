@@ -56,6 +56,8 @@ const signInSuccess = function () {
   $('.favorite-container').show()
   $('.picture-container').show()
   $('.api-apod-container').show()
+  $('#mars-search-results').hide()
+  // $('.search-message').show()
 
   events.neoDailyFeed()
   events.neoStats()
@@ -93,6 +95,7 @@ const signOutSuccess = function () {
   $('.comment-results').empty()
   $('.favorite-results').empty()
   $('.search-results').empty()
+  $('#mars-search-results').empty()
   $('#sign-out').hide()
   $('#change-password-link').hide()
   $('.change-password-container').hide()
@@ -110,6 +113,8 @@ const signOutSuccess = function () {
   $('#search-bar-link').hide()
   $('.neo').empty()
   $('.neo-stats').empty()
+  $('.mars-rover-container').hide()
+  $('.search-mars').hide()
 }
 
 module.exports = {

@@ -155,6 +155,7 @@ const searchMarsRoverApi = function () {
     method: 'POST',
     data: data
   }).done(function (results) {
+    console.log(results)
     $('.mars-list').empty()
     for (let i = 0; i < results.photos.length; i++) {
       const singleSearchResult = marsTemplate(results.photos[i])
@@ -167,11 +168,11 @@ const searchMarsRoverApi = function () {
       start: '0',
       keyboard: false,
       click: true,
-      buttons: true,
+      // buttons: true,
       scrollwheel: true,
       fadeIn: 400,
-      loop: false,
-      autoplay: false,
+      loop: true,
+      autoplay: 1000,
       spacing: -0.5
     })
     $('#mars-search-results').flipster('index')

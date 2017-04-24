@@ -168,11 +168,12 @@ const searchMarsRoverApi = function () {
       start: '0',
       keyboard: false,
       click: true,
+      nav: 'after',
       // buttons: true,
       scrollwheel: true,
-      fadeIn: 400,
+      fadeIn: 200,
       loop: true,
-      autoplay: 1000,
+      autoplay: 1500,
       spacing: -0.5
     })
     $('#mars-search-results').flipster('index')

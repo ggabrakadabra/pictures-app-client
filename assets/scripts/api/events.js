@@ -173,10 +173,20 @@ const searchMarsRoverApi = function () {
       scrollwheel: true,
       fadeIn: 200,
       loop: true,
-      autoplay: 1500,
+      autoplay: 1000,
       spacing: -0.5
     })
     $('#mars-search-results').flipster('index')
+    // $('.add-mars-picture').on('submit', function (event) {
+    //   if (event && event.preventDefault) {
+    //     event.preventDefault()
+    //   }
+    //   const data = getFormFields(event.target)
+    //   api.createPictures(data)
+    //       .then(api.addToFavoritesList)
+    //       .then(ui.addPictureToFavorites)
+    //       .fail(ui.addFavoriteFail)
+    // })
   })
   .then(apiUi.searchMarsSuccess)
   .fail(apiUi.searchMarsFail)

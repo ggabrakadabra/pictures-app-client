@@ -113,11 +113,21 @@ body {
 
 .search-mars {
   // flex-basis: 10%;
+  color: #bc509c;
   display: block;
   padding: .5em;
   margin: 0 auto;
   width: 20%;
   text-align: center;
+}
+
+.btn {
+  background-color: #bc509c;
+  border-color: #bc509c;
+}
+
+#earth-date, #apod-date {
+  border-color: #bc509c;
 }
 
 .mars-search-results {
@@ -360,8 +370,7 @@ body {
 }
 
 input[placeholder] {
-  border: 3px solid #2ECAFF;
-  color: #5b5b5b;
+  border: 3px solid #bc509c;
 }
 
 body {

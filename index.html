@@ -111,9 +111,13 @@
          <form id="change-password">
            <fieldset>
              <label>
-             <input type="password" pattern=".{1,}" required title="1 character minimum" placeholder="Old Password" name="passwords[old]">
-             <input type="password" pattern=".{1,}" required title="1 character minimum" placeholder="New Password" name="passwords[new]">
-           </label>
+               <input type="password" pattern=".{1,}" required title="1 character minimum" placeholder="Old Password" name="passwords[old]">
+             </label>
+             <br>
+             <label>
+               <input type="password" pattern=".{1,}" required title="1 character minimum" placeholder="New Password" name="passwords[new]">
+             </label>
+           <br>
            <input type="submit" class="btn btn-primary" name="submit" value="Change Password">
            </fieldset>
          </form>

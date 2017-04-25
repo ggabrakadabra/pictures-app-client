@@ -27,7 +27,7 @@ body {
 }
 
 .fa-trash-o {
-  color: #2ECAFF;
+  color: #44A4C4;
   font-size: 20px;
 }
 
@@ -145,7 +145,7 @@ body {
 
 
 #earth-date, #apod-date {
-  border-color: #2ECAFF;
+  border-color: #44A4C4;
 }
 
 .mars-search-results {
@@ -305,7 +305,7 @@ body {
   flex-basis: 20%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: white;
-  color: #2ECAFF;
+  color: #44A4C4;
   background-color: black;
 }
 
@@ -314,7 +314,7 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     border-left: 5px solid #fce2f4;
     border-top: 5px solid #fce2f4;
-    color: #2ECAFF;
+    color: #44A4C4;
 }
 
 .user-email {
@@ -388,7 +388,11 @@ body {
 }
 
 input[placeholder] {
-  border: 3px solid #2ECAFF;
+  border: 3px solid #44A4C4;
+}
+
+h4 {
+  color: #44A4C4;
 }
 
 body {

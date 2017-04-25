@@ -256,6 +256,7 @@ const showMars = function () {
   $('#comments-link').removeClass('active')
   $('.comment-container').hide()
   $('.apod-container').hide()
+  $('.mars-search-results').show()
   $('.favorites-container').hide()
   $('.sign-in-container').hide()
   $('.change-password-container').hide()

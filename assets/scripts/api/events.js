@@ -237,5 +237,6 @@ const addHandlers = () => {
 module.exports = {
   addHandlers,
   neoDailyFeed,
-  neoStats
+  neoStats,
+  showApod
 }

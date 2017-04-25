@@ -439,12 +439,12 @@ input:hover {
 }
 
 
-// .mars-rover-container, .search-container, .favorites-container, .change-password-container, .apod-container {
-//   height: 100vh;
-// }
+.change-password-container, .sign-in-container, .mars-rover-container {
+  overflow: hidden;
+  height: 100vh;
+}
 
-
-.mars-rover-container, .search-container {
+.search-container, .apod-container {
   height: 100%;
   overflow: hidden;
 }

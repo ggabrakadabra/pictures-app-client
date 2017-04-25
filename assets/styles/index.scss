@@ -144,11 +144,13 @@ body {
 .search-patents, .search-sounds, .neo-today, .neo-stats-today {
   color: #bc509c;
   text-align: center;
+  background-color: #fce2f4;
+  border-radius: 5px;
 }
 
 
 #earth-date, #apod-date {
-  border-color: #bc509c;
+  border-color: #2ECAFF;
 }
 
 .mars-search-results {
@@ -253,9 +255,10 @@ body {
   color: #bc509c;
 }
 
-.single-search-result-patents, .single-search-result-sounds, .single-search-result-mars {
+.single-search-result-patents, .single-search-result-sounds {
   background-color: #fce2f4;
   margin: 2em;
+  color: #bc509c;
   padding: 1em;
   border-radius: 5px;
 }
@@ -391,7 +394,7 @@ body {
 }
 
 input[placeholder] {
-  border: 3px solid #bc509c;
+  border: 3px solid #2ECAFF;
 }
 
 body {

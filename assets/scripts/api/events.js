@@ -164,17 +164,19 @@ const searchMarsRoverApi = function () {
     $('#mars-search-results').flipster({
       itemContainer: 'ul',
       itemSelector: 'li',
-      style: 'coverflow',
-      start: '0',
+      style: 'carousel',
+      start: 'center',
       keyboard: false,
       click: true,
-      nav: 'after',
-      // buttons: true,
-      scrollwheel: true,
+      // nav: 'after',
+      buttons: true,
+      // scrollwheel: true,
+      buttonNext: 'Next',
+      buttonPrevious: 'Previous',
       fadeIn: 200,
       loop: true,
-      autoplay: 1000,
-      spacing: -0.5
+      // autoplay: 1500,
+      spacing: -0.2
     })
     $('#mars-search-results').flipster('index')
     // $('.add-mars-picture').on('submit', function (event) {

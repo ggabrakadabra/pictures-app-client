@@ -108,23 +108,29 @@ body {
 // }
 
 .mars-rover-container {
-  display: flex;
+  // display: flex;
 }
 
 .search-mars {
-  flex-basis: 10%;
+  // flex-basis: 10%;
   display: block;
   padding: 1em;
+  margin: 0 auto;
+  width: 20%;
+  text-align: center;
 }
 
 .mars-search-results {
-  flex-basis: 85%;
+  // flex-basis: 85%;
   display: block;
 }
 
 .search-results {
   flex-basis: 80%;
+}
 
+svg {
+  color: #bc509c;
 }
 
 body {

@@ -77,11 +77,17 @@ body {
 
 .search-container {
   display: flex;
+    // display: inline;
 }
 
 .search-parameters {
   flex-basis: 25%;
   margin: 2em;
+  // display: inline;
+}
+
+.search-results {
+  flex-basis: 80%;
 }
 
 .welcome-message {
@@ -135,6 +141,12 @@ body {
   border-color: #bc509c;
 }
 
+.search-patents, .search-sounds, .neo-today, .neo-stats-today {
+  color: #bc509c;
+  text-align: center;
+}
+
+
 #earth-date, #apod-date {
   border-color: #bc509c;
 }
@@ -144,9 +156,9 @@ body {
   display: block;
 }
 
-.search-results {
-  flex-basis: 80%;
-}
+// .search-results {
+//   flex-basis: 80%;
+// }
 
 svg {
   color: #bc509c;

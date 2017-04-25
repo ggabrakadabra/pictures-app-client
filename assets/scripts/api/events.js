@@ -171,8 +171,6 @@ const searchMarsRoverApi = function () {
       // nav: 'after',
       buttons: true,
       scrollwheel: false,
-      buttonNext: 'Next',
-      buttonPrevious: 'Previous',
       fadeIn: 200,
       loop: true,
       // autoplay: 1500,

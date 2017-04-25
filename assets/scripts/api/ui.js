@@ -20,6 +20,14 @@ const searchPatentsSuccess = function () {
   $('.search-message').hide()
 }
 
+$(function () {
+  $('.selector').animatedHeadline({
+    animationType: 'rotate-3'
+  })
+})
+
+module.exports = true
+
 module.exports = {
   searchMarsFail,
   searchMarsSuccess,

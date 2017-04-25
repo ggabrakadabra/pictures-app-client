@@ -128,17 +128,32 @@ body {
 }
 
 .btn {
-  background-color: #bc509c;
-  border-color: #bc509c;
+  background-color: #bc509c !important;
+  border-color: #bc509c !important;
+}
+
+.btn-primary {
+  background-color: #bc509c !important;
+  border-color: #bc509c !important;
+}
+
+.btn:active:focus {
+  background-color: #fce2f4 !important;
+  color: #bc509c !important;
+}
+
+.btn-primary:active:focus {
+  background-color: #fce2f4 !important;
+  color: #bc509c !important;
 }
 
 .btn:hover {
-  background-color: #fce2f4;
-  color: #bc509c;
+  background-color: #fce2f4 !important;
+  color: #bc509c !important;
 }
 
 .btn-primary:hover {
-  border-color: #bc509c;
+  border-color: #bc509c !important;
 }
 
 .search-patents, .search-sounds, .neo-today, .neo-stats-today {

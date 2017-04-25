@@ -82,7 +82,7 @@ body {
 
 .search-parameters {
   flex-basis: 25%;
-  margin: 2em;
+  // margin: 2em;
   // display: inline;
 }
 
@@ -127,27 +127,12 @@ body {
   text-align: center;
 }
 
-.btn {
+.btn, .btn-primary {
   background-color: #bc509c !important;
   border-color: #bc509c !important;
 }
 
-.btn-primary {
-  background-color: #bc509c !important;
-  border-color: #bc509c !important;
-}
-
-.btn:active:focus {
-  background-color: #fce2f4 !important;
-  color: #bc509c !important;
-}
-
-.btn-primary:active:focus {
-  background-color: #fce2f4 !important;
-  color: #bc509c !important;
-}
-
-.btn:hover {
+.btn:active:focus, .btn-primary:active:focus, .btn:hover {
   background-color: #fce2f4 !important;
   color: #bc509c !important;
 }

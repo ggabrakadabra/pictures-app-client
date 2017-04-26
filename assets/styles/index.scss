@@ -85,6 +85,7 @@ body {
 
 .selector {
   color: #44A4C4;
+  text-shadow: 1px 1px white;
 }
 
 .welcome-message {
@@ -190,11 +191,18 @@ body {
 .navbar-default .navbar-nav > .active > a:focus {
   color: #bc509c;
   background-color: #fce2f4;
+  text-shadow: 1px 1px white;
 }
 
 .navbar-default .navbar-nav > li > a {
   color: white;
   font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+}
+
+a {
+  font-weight: bold;
 }
 
 .navbar-default .navbar-brand {
@@ -204,6 +212,7 @@ body {
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #bc509c;
     background-color: #fce2f4;
+    text-shadow: 1px 1px white;
 }
 
 .favorites-container, .photo-description-container, .search-result-image-and-description {
@@ -451,7 +460,12 @@ input:hover {
   height: 100vh;
 }
 
-.search-container, .apod-container, .favorites-container {
+.favorites-container {
+  height: 100%;
+  // overflow: sc
+}
+
+.search-container, .apod-container {
   height: 100%;
   overflow: hidden;
 }

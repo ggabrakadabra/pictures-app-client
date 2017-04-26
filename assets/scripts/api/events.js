@@ -155,7 +155,6 @@ const searchMarsRoverApi = function () {
     method: 'POST',
     data: data
   }).done(function (results) {
-    console.log(results)
     $('.mars-list').empty()
     for (let i = 0; i < results.photos.length; i++) {
       const singleSearchResult = marsTemplate(results.photos[i])

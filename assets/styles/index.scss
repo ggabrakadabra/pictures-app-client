@@ -6,6 +6,29 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+
+.title {
+  text-align: center;
+  color: #bc509c;
+}
+
+.add-picture {
+  margin: .5em;
+}
+
+.apod-description {
+    position: absolute;
+    width: 50%;
+    margin-left: 22%;
+    display: none;
+    color: white;
+}
+
+.apod-photo:hover {
+  box-shadow: 0 0 15px 10px white;
+  opacity: 0.5;
+}
+
 body {
   background-color: black;
 }
@@ -63,7 +86,7 @@ body {
   height: 90%;
   margin: auto;
   flex-basis: auto;
-  padding: 2em;
+  // padding: 2em;
   z-index: 100;
 }
 

@@ -1,5 +1,13 @@
 'use strict'
 
+// $('.apod-photo').on('mouseover', function () {
+//   $('.apod-description').show()
+// })
+//
+// $('.apod-photo').on('mouseout', function () {
+//   $('.apod-description').hide()
+// })
+
 const searchMarsSuccess = function () {
   $('.message').text('Searching Mars Photos')
   $('.mars-search-message').hide()

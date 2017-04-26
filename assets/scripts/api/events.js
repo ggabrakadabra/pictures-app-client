@@ -34,6 +34,12 @@ const showApod = function () {
           .then(ui.addPictureToFavorites)
           .fail(ui.addFavoriteFail)
     })
+    $('.apod-photo').on('mouseover', function () {
+      $('.apod-description').show()
+    })
+    $('.apod-photo').on('mouseout', function () {
+      $('.apod-description').hide()
+    })
   })
 }
 
@@ -218,6 +224,12 @@ const searchApod = function () {
           .then(api.addToFavoritesList)
           .then(ui.addPictureToFavorites)
           .fail(ui.addFavoriteFail)
+    })
+    $('.apod-photo').on('mouseover', function () {
+      $('.apod-description').show()
+    })
+    $('.apod-photo').on('mouseout', function () {
+      $('.apod-description').hide()
     })
   })
     .then(ui.searchApodSuccess)

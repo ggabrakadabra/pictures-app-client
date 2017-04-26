@@ -191,14 +191,14 @@ body {
 .navbar-default .navbar-nav > .active > a:focus {
   color: #bc509c;
   background-color: #fce2f4;
-  text-shadow: 1px 1px white;
+  text-shadow: 2px 2px white;
 }
 
 .navbar-default .navbar-nav > li > a {
   color: white;
   font-size: 16px;
-  font-weight: bold;
-  text-shadow: 1px 1px black;
+  font-weight: bolder;
+  text-shadow: 2px 2px black;
 }
 
 a {
@@ -212,7 +212,7 @@ a {
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #bc509c;
     background-color: #fce2f4;
-    text-shadow: 1px 1px white;
+    text-shadow: 2px 2px white;
 }
 
 .favorites-container, .photo-description-container, .search-result-image-and-description {

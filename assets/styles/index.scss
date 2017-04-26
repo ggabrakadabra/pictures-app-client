@@ -47,6 +47,7 @@ body {
 
 .picture-favorite:hover {
   border: 5px solid #fce2f4;
+  border-radius: 5px;
 }
 
 .apod-results {
@@ -75,8 +76,9 @@ body {
 
 .search-parameters {
   flex-basis: 25%;
-  // margin: 2em;
-  // display: inline;
+  border-radius: 5px;
+  height: 50%;
+  border: 5px solid #fce2f4;
 }
 
 .search-results {
@@ -143,7 +145,6 @@ body {
 .search-patents, .search-sounds, .neo-today, .neo-stats-today {
   color: #bc509c;
   text-align: center;
-  background-color: #fce2f4;
   border-radius: 5px;
 }
 
@@ -258,11 +259,11 @@ a {
 }
 
 .single-search-result-patents, .single-search-result-sounds {
-  background-color: #fce2f4;
-  margin: 2em;
-  color: #bc509c;
-  padding: 1em;
-  border-radius: 5px;
+    margin: 2em;
+    color: #bc509c;
+    padding: 1em;
+    border-radius: 5px;
+    border: 5px solid #fce2f4;
 }
 
 .picture-description {
@@ -275,6 +276,7 @@ a {
 .change-comment {
   display: none;
   text-align: center;
+  color: #44A4C4;
 }
 
 .comment {
@@ -327,6 +329,7 @@ a {
     border-left: 5px solid #fce2f4;
     border-top: 5px solid #fce2f4;
     color: #44A4C4;
+    border-radius: 5px;
 }
 
 .user-email {
@@ -338,6 +341,7 @@ a {
     border-top: 5px solid #fce2f4;
     border-left: 5px solid #fce2f4;
     border-right: 5px solid #fce2f4;
+    border-radius: 5px;
 }
 
 .comment-container {

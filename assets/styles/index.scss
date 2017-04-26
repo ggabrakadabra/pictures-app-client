@@ -54,6 +54,10 @@ body {
   text-align: center;
 }
 
+#sign-up, #sign-in {
+  margin: 1em;
+}
+
 .apod-photo, .picture-photo {
   width: 90%;
   height: 90%;
@@ -331,7 +335,6 @@ a {
     border-bottom: 5px solid #fce2f4;
     color: #44A4C4;
     border-radius: 5px;
-    display: fixed;
 }
 
 .user-email {

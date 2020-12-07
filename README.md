@@ -1,8 +1,8 @@
 ## Links
 
-**Live site:** <https://ggwilliams.github.io/pictures-app-client/>
+**Live site:** <https://ggabrakadabra.github.io/pictures-app-client/>
 
-**Back End Repo:** <https://github.com/ggwilliams/rails-pictures-api>
+**Back End Repo:** <https://github.com/ggabrakadabra/rails-pictures-api>
 
 **Deployed:** <https://salty-ravine-27099.herokuapp.com/>
 
